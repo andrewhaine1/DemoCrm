@@ -1,0 +1,315 @@
+2019-02-11 09:34:42.077 +02:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2019-02-11 09:34:42.104 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2019-02-11 09:34:42.105 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2019-02-11 09:34:42.105 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2019-02-11 09:34:42.105 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2019-02-11 09:34:42.105 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2019-02-11 09:34:42.238 +02:00 [DBG] Starting grant removal
+2019-02-11 09:34:42.620 +02:00 [DBG] Login Url: /Account/Login
+2019-02-11 09:34:42.626 +02:00 [DBG] Login Return Url Parameter: ReturnUrl
+2019-02-11 09:34:42.627 +02:00 [DBG] Logout Url: /Account/Logout
+2019-02-11 09:34:42.627 +02:00 [DBG] ConsentUrl Url: /consent
+2019-02-11 09:34:42.627 +02:00 [DBG] Consent Return Url Parameter: returnUrl
+2019-02-11 09:34:42.627 +02:00 [DBG] Error Url: /home/error
+2019-02-11 09:34:42.627 +02:00 [DBG] Error Id Parameter: errorId
+2019-02-11 09:55:48.585 +02:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2019-02-11 09:55:48.614 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2019-02-11 09:55:48.614 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2019-02-11 09:55:48.615 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2019-02-11 09:55:48.615 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2019-02-11 09:55:48.615 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2019-02-11 09:55:48.757 +02:00 [DBG] Starting grant removal
+2019-02-11 09:55:49.008 +02:00 [DBG] Login Url: /Account/Login
+2019-02-11 09:55:49.010 +02:00 [DBG] Login Return Url Parameter: ReturnUrl
+2019-02-11 09:55:49.010 +02:00 [DBG] Logout Url: /Account/Logout
+2019-02-11 09:55:49.010 +02:00 [DBG] ConsentUrl Url: /consent
+2019-02-11 09:55:49.010 +02:00 [DBG] Consent Return Url Parameter: returnUrl
+2019-02-11 09:55:49.010 +02:00 [DBG] Error Url: /home/error
+2019-02-11 09:55:49.010 +02:00 [DBG] Error Id Parameter: errorId
+2019-02-11 09:55:52.737 +02:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2019-02-11 09:56:04.788 +02:00 [DBG] CORS request made for path: /Account/Login from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2019-02-11 09:56:04.976 +02:00 [INF] {"Username":"alice","Endpoint":"UI","Category":"Authentication","Name":"User Login Failure","EventType":"Failure","Id":1001,"Message":"invalid credentials","ActivityId":"0HLKFUPB11OB8:00000004","TimeStamp":"2019-02-11T07:56:04.0000000Z","ProcessId":24232,"LocalIpAddress":"127.0.0.1:12129","RemoteIpAddress":"::1","$type":"UserLoginFailureEvent"}
+2019-02-11 10:01:56.959 +02:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2019-02-11 10:01:56.987 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2019-02-11 10:01:56.988 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2019-02-11 10:01:56.988 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2019-02-11 10:01:56.988 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2019-02-11 10:01:56.988 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2019-02-11 10:01:57.130 +02:00 [DBG] Starting grant removal
+2019-02-11 10:01:57.509 +02:00 [DBG] Login Url: /Account/Login
+2019-02-11 10:01:57.513 +02:00 [DBG] Login Return Url Parameter: ReturnUrl
+2019-02-11 10:01:57.513 +02:00 [DBG] Logout Url: /Account/Logout
+2019-02-11 10:01:57.513 +02:00 [DBG] ConsentUrl Url: /consent
+2019-02-11 10:01:57.513 +02:00 [DBG] Consent Return Url Parameter: returnUrl
+2019-02-11 10:01:57.513 +02:00 [DBG] Error Url: /home/error
+2019-02-11 10:01:57.513 +02:00 [DBG] Error Id Parameter: errorId
+2019-02-11 10:02:11.481 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.AspNetCore.Identity.UI.Services.IEmailSender' while attempting to activate 'DemoCrm.Identity.Areas.Identity.Pages.Account.RegisterModel'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelActivatorProvider.<>c__DisplayClass1_0.<CreateActivator>b__0(PageContext context)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelFactoryProvider.<>c__DisplayClass3_0.<CreateModelFactory>b__0(PageContext pageContext)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Internal.PageActionInvoker.CreateInstance()
+   at Microsoft.AspNetCore.Mvc.RazorPages.Internal.PageActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Internal.PageActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at IdentityServer4.Hosting.IdentityServerMiddleware.Invoke(HttpContext context, IEndpointRouter router, IUserSession session, IEventService events) in C:\local\identity\server4\IdentityServer4\src\Hosting\IdentityServerMiddleware.cs:line 72
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.Invoke(HttpContext context)
+   at IdentityServer4.Hosting.BaseUrlMiddleware.Invoke(HttpContext context) in C:\local\identity\server4\IdentityServer4\src\Hosting\BaseUrlMiddleware.cs:line 36
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-02-11 10:11:46.059 +02:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2019-02-11 10:11:46.086 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2019-02-11 10:11:46.086 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2019-02-11 10:11:46.086 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2019-02-11 10:11:46.086 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2019-02-11 10:11:46.086 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2019-02-11 10:11:46.254 +02:00 [DBG] Starting grant removal
+2019-02-11 10:11:46.500 +02:00 [DBG] Login Url: /Account/Login
+2019-02-11 10:11:46.504 +02:00 [DBG] Login Return Url Parameter: ReturnUrl
+2019-02-11 10:11:46.504 +02:00 [DBG] Logout Url: /Account/Logout
+2019-02-11 10:11:46.504 +02:00 [DBG] ConsentUrl Url: /consent
+2019-02-11 10:11:46.504 +02:00 [DBG] Consent Return Url Parameter: returnUrl
+2019-02-11 10:11:46.505 +02:00 [DBG] Error Url: /home/error
+2019-02-11 10:11:46.505 +02:00 [DBG] Error Id Parameter: errorId
+2019-02-11 10:11:48.935 +02:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2019-02-11 10:12:06.875 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.AspNetCore.Identity.UI.Services.IEmailSender' while attempting to activate 'DemoCrm.Identity.Areas.Identity.Pages.Account.RegisterModel'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelActivatorProvider.<>c__DisplayClass1_0.<CreateActivator>b__0(PageContext context)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelFactoryProvider.<>c__DisplayClass3_0.<CreateModelFactory>b__0(PageContext pageContext)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Internal.PageActionInvoker.CreateInstance()
+   at Microsoft.AspNetCore.Mvc.RazorPages.Internal.PageActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Internal.PageActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at IdentityServer4.Hosting.IdentityServerMiddleware.Invoke(HttpContext context, IEndpointRouter router, IUserSession session, IEventService events) in C:\local\identity\server4\IdentityServer4\src\Hosting\IdentityServerMiddleware.cs:line 72
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.Invoke(HttpContext context)
+   at IdentityServer4.Hosting.BaseUrlMiddleware.Invoke(HttpContext context) in C:\local\identity\server4\IdentityServer4\src\Hosting\BaseUrlMiddleware.cs:line 36
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-02-11 10:16:19.270 +02:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2019-02-11 10:16:19.306 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2019-02-11 10:16:19.306 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2019-02-11 10:16:19.306 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2019-02-11 10:16:19.307 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2019-02-11 10:16:19.307 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2019-02-11 10:16:19.430 +02:00 [DBG] Starting grant removal
+2019-02-11 10:16:19.701 +02:00 [DBG] Login Url: /Account/Login
+2019-02-11 10:16:19.708 +02:00 [DBG] Login Return Url Parameter: ReturnUrl
+2019-02-11 10:16:19.708 +02:00 [DBG] Logout Url: /Account/Logout
+2019-02-11 10:16:19.708 +02:00 [DBG] ConsentUrl Url: /consent
+2019-02-11 10:16:19.708 +02:00 [DBG] Consent Return Url Parameter: returnUrl
+2019-02-11 10:16:19.708 +02:00 [DBG] Error Url: /home/error
+2019-02-11 10:16:19.708 +02:00 [DBG] Error Id Parameter: errorId
+2019-02-11 10:16:43.494 +02:00 [WRN] User 34b28728-e562-418e-ab20-e94faae498dd password validation failed: PasswordRequiresNonAlphanumeric.
+2019-02-11 10:16:55.866 +02:00 [INF] User created a new account with password.
+2019-02-11 10:16:55.978 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NotImplementedException: The method or operation is not implemented.
+   at DemoCrm.Identity.Services.EmailSender.SendEmailAsync(String email, String subject, String htmlMessage) in C:\Users\Andrew.Haine\source\repos\DemoCrm\DemoCrm.Identity\Services\EmailSender.cs:line 13
+   at DemoCrm.Identity.Areas.Identity.Pages.Account.RegisterModel.OnPostAsync(String returnUrl) in C:\Users\Andrew.Haine\source\repos\DemoCrm\DemoCrm.Identity\Areas\Identity\Pages\Account\Register.cshtml.cs:line 83
+   at Microsoft.AspNetCore.Mvc.RazorPages.Internal.ExecutorFactory.GenericTaskHandlerMethod.Convert[T](Object taskAsObject)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Internal.ExecutorFactory.GenericTaskHandlerMethod.Execute(Object receiver, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Internal.PageActionInvoker.InvokeHandlerMethodAsync()
+   at Microsoft.AspNetCore.Mvc.RazorPages.Internal.PageActionInvoker.InvokeNextPageFilterAsync()
+   at Microsoft.AspNetCore.Mvc.RazorPages.Internal.PageActionInvoker.Rethrow(PageHandlerExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Internal.PageActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Internal.PageActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at IdentityServer4.Hosting.IdentityServerMiddleware.Invoke(HttpContext context, IEndpointRouter router, IUserSession session, IEventService events) in C:\local\identity\server4\IdentityServer4\src\Hosting\IdentityServerMiddleware.cs:line 72
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.Invoke(HttpContext context)
+   at IdentityServer4.Hosting.BaseUrlMiddleware.Invoke(HttpContext context) in C:\local\identity\server4\IdentityServer4\src\Hosting\BaseUrlMiddleware.cs:line 36
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-02-11 10:18:29.918 +02:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2019-02-11 10:18:29.953 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2019-02-11 10:18:29.954 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2019-02-11 10:18:29.954 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2019-02-11 10:18:29.954 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2019-02-11 10:18:29.954 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2019-02-11 10:18:30.097 +02:00 [DBG] Starting grant removal
+2019-02-11 10:18:30.415 +02:00 [DBG] Login Url: /Account/Login
+2019-02-11 10:18:30.419 +02:00 [DBG] Login Return Url Parameter: ReturnUrl
+2019-02-11 10:18:30.419 +02:00 [DBG] Logout Url: /Account/Logout
+2019-02-11 10:18:30.419 +02:00 [DBG] ConsentUrl Url: /consent
+2019-02-11 10:18:30.419 +02:00 [DBG] Consent Return Url Parameter: returnUrl
+2019-02-11 10:18:30.419 +02:00 [DBG] Error Url: /home/error
+2019-02-11 10:18:30.419 +02:00 [DBG] Error Id Parameter: errorId
+2019-02-11 10:18:33.699 +02:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2019-02-11 10:18:45.081 +02:00 [DBG] CORS request made for path: /Account/Login from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2019-02-11 10:18:45.424 +02:00 [DBG] Augmenting SignInContext
+2019-02-11 10:18:45.434 +02:00 [DBG] Adding idp claim with value: local
+2019-02-11 10:18:45.434 +02:00 [DBG] Adding amr claim with value: pwd
+2019-02-11 10:18:45.434 +02:00 [DBG] Adding auth_time claim with value: 1549873125
+2019-02-11 10:18:45.449 +02:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2019-02-11 10:18:45.479 +02:00 [INF] {"Username":"ahaine@outlook.com","Provider":null,"ProviderUserId":null,"SubjectId":"2c0e5ac6-0041-4579-b4ae-110a1df945c5","DisplayName":"ahaine@outlook.com","Endpoint":"UI","Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HLKFV60O3LP9:00000003","TimeStamp":"2019-02-11T08:18:45.0000000Z","ProcessId":24328,"LocalIpAddress":"127.0.0.1:7886","RemoteIpAddress":"::1","$type":"UserLoginSuccessEvent"}
+2019-02-11 10:18:45.580 +02:00 [DBG] 0 persisted grants found for 2c0e5ac6-0041-4579-b4ae-110a1df945c5
+2019-02-11 10:19:03.433 +02:00 [DBG] CORS request made for path: /Account/Logout from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2019-02-11 10:19:03.449 +02:00 [INF] AuthenticationScheme: Identity.Application signed out.
+2019-02-11 10:19:03.450 +02:00 [INF] AuthenticationScheme: Identity.External signed out.
+2019-02-11 10:19:03.451 +02:00 [INF] AuthenticationScheme: Identity.TwoFactorUserId signed out.
+2019-02-11 10:19:03.453 +02:00 [INF] {"SubjectId":"2c0e5ac6-0041-4579-b4ae-110a1df945c5","DisplayName":"ahaine@outlook.com","Category":"Authentication","Name":"User Logout Success","EventType":"Success","Id":1002,"Message":null,"ActivityId":"0HLKFV60O3LP8:00000004","TimeStamp":"2019-02-11T08:19:03.0000000Z","ProcessId":24328,"LocalIpAddress":"127.0.0.1:7886","RemoteIpAddress":"::1","$type":"UserLogoutSuccessEvent"}
+2019-02-11 10:30:20.020 +02:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2019-02-11 10:30:20.056 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2019-02-11 10:30:20.057 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2019-02-11 10:30:20.057 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2019-02-11 10:30:20.057 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2019-02-11 10:30:20.057 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2019-02-11 10:30:20.228 +02:00 [DBG] Starting grant removal
+2019-02-11 10:30:20.705 +02:00 [DBG] Login Url: /Account/Login
+2019-02-11 10:30:20.713 +02:00 [DBG] Login Return Url Parameter: ReturnUrl
+2019-02-11 10:30:20.713 +02:00 [DBG] Logout Url: /Account/Logout
+2019-02-11 10:30:20.714 +02:00 [DBG] ConsentUrl Url: /consent
+2019-02-11 10:30:20.714 +02:00 [DBG] Consent Return Url Parameter: returnUrl
+2019-02-11 10:30:20.714 +02:00 [DBG] Error Url: /home/error
+2019-02-11 10:30:20.714 +02:00 [DBG] Error Id Parameter: errorId
+2019-02-11 10:30:24.042 +02:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2019-02-11 10:30:26.473 +02:00 [DBG] CORS request made for path: /Account/Login from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2019-02-11 10:30:27.002 +02:00 [DBG] Augmenting SignInContext
+2019-02-11 10:30:27.018 +02:00 [DBG] Adding idp claim with value: local
+2019-02-11 10:30:27.018 +02:00 [DBG] Adding amr claim with value: pwd
+2019-02-11 10:30:27.018 +02:00 [DBG] Adding auth_time claim with value: 1549873827
+2019-02-11 10:30:27.035 +02:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2019-02-11 10:30:27.064 +02:00 [INF] {"Username":"ahaine@outlook.com","Provider":null,"ProviderUserId":null,"SubjectId":"2c0e5ac6-0041-4579-b4ae-110a1df945c5","DisplayName":"ahaine@outlook.com","Endpoint":"UI","Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HLKFVCKD6K23:00000003","TimeStamp":"2019-02-11T08:30:27.0000000Z","ProcessId":19224,"LocalIpAddress":"127.0.0.1:38913","RemoteIpAddress":"::1","$type":"UserLoginSuccessEvent"}
+2019-02-11 10:30:27.150 +02:00 [DBG] 0 persisted grants found for 2c0e5ac6-0041-4579-b4ae-110a1df945c5
+2019-02-11 10:30:47.936 +02:00 [DBG] CORS request made for path: /Account/Logout from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2019-02-11 10:30:47.962 +02:00 [INF] AuthenticationScheme: Identity.Application signed out.
+2019-02-11 10:30:47.965 +02:00 [INF] AuthenticationScheme: Identity.External signed out.
+2019-02-11 10:30:47.967 +02:00 [INF] AuthenticationScheme: Identity.TwoFactorUserId signed out.
+2019-02-11 10:30:47.969 +02:00 [INF] {"SubjectId":"2c0e5ac6-0041-4579-b4ae-110a1df945c5","DisplayName":"ahaine@outlook.com","Category":"Authentication","Name":"User Logout Success","EventType":"Success","Id":1002,"Message":null,"ActivityId":"0HLKFVCKD6K20:00000005","TimeStamp":"2019-02-11T08:30:47.0000000Z","ProcessId":19224,"LocalIpAddress":"127.0.0.1:38913","RemoteIpAddress":"::1","$type":"UserLogoutSuccessEvent"}
+2019-02-11 10:32:56.865 +02:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2019-02-11 10:32:56.920 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2019-02-11 10:32:56.920 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2019-02-11 10:32:56.920 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2019-02-11 10:32:56.920 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2019-02-11 10:32:56.921 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2019-02-11 10:32:57.095 +02:00 [DBG] Starting grant removal
+2019-02-11 10:32:57.435 +02:00 [DBG] Login Url: /Account/Login
+2019-02-11 10:32:57.437 +02:00 [DBG] Login Return Url Parameter: ReturnUrl
+2019-02-11 10:32:57.437 +02:00 [DBG] Logout Url: /Account/Logout
+2019-02-11 10:32:57.437 +02:00 [DBG] ConsentUrl Url: /consent
+2019-02-11 10:32:57.437 +02:00 [DBG] Consent Return Url Parameter: returnUrl
+2019-02-11 10:32:57.437 +02:00 [DBG] Error Url: /home/error
+2019-02-11 10:32:57.437 +02:00 [DBG] Error Id Parameter: errorId
+2019-02-11 10:51:41.772 +02:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2019-02-11 10:51:41.809 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2019-02-11 10:51:41.810 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2019-02-11 10:51:41.810 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2019-02-11 10:51:41.810 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2019-02-11 10:51:41.810 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2019-02-11 10:51:41.971 +02:00 [DBG] Starting grant removal
+2019-02-11 10:51:42.308 +02:00 [DBG] Login Url: /Account/Login
+2019-02-11 10:51:42.310 +02:00 [DBG] Login Return Url Parameter: ReturnUrl
+2019-02-11 10:51:42.310 +02:00 [DBG] Logout Url: /Account/Logout
+2019-02-11 10:51:42.310 +02:00 [DBG] ConsentUrl Url: /consent
+2019-02-11 10:51:42.310 +02:00 [DBG] Consent Return Url Parameter: returnUrl
+2019-02-11 10:51:42.310 +02:00 [DBG] Error Url: /home/error
+2019-02-11 10:51:42.310 +02:00 [DBG] Error Id Parameter: errorId
+2019-02-11 10:51:42.663 +02:00 [DBG] Stopping grant removal
+2019-02-11 10:51:42.665 +02:00 [DBG] TaskCanceledException. Exiting.
+2019-02-11 10:51:49.462 +02:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2019-02-11 10:51:49.498 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2019-02-11 10:51:49.499 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2019-02-11 10:51:49.499 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2019-02-11 10:51:49.499 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2019-02-11 10:51:49.499 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2019-02-11 10:51:49.595 +02:00 [DBG] Starting grant removal
+2019-02-11 11:51:50.674 +02:00 [INF] Removing 0 grants
+2019-02-11 12:51:51.794 +02:00 [INF] Removing 0 grants
+2019-02-11 13:51:53.235 +02:00 [INF] Removing 0 grants
+2019-02-11 14:51:53.389 +02:00 [INF] Removing 0 grants
+2019-02-11 15:51:54.468 +02:00 [INF] Removing 0 grants
+2019-02-11 16:51:55.539 +02:00 [INF] Removing 0 grants
+2019-02-11 17:51:56.644 +02:00 [INF] Removing 0 grants
+2019-02-11 18:51:57.766 +02:00 [INF] Removing 0 grants
+2019-02-13 21:34:34.910 +02:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2019-02-13 21:34:34.940 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2019-02-13 21:34:34.940 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2019-02-13 21:34:34.940 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2019-02-13 21:34:34.940 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2019-02-13 21:34:34.940 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2019-02-13 21:34:35.024 +02:00 [DBG] Starting grant removal
+2019-02-13 21:34:35.185 +02:00 [DBG] Login Url: /Account/Login
+2019-02-13 21:34:35.188 +02:00 [DBG] Login Return Url Parameter: ReturnUrl
+2019-02-13 21:34:35.188 +02:00 [DBG] Logout Url: /Account/Logout
+2019-02-13 21:34:35.188 +02:00 [DBG] ConsentUrl Url: /consent
+2019-02-13 21:34:35.188 +02:00 [DBG] Consent Return Url Parameter: returnUrl
+2019-02-13 21:34:35.188 +02:00 [DBG] Error Url: /home/error
+2019-02-13 21:34:35.188 +02:00 [DBG] Error Id Parameter: errorId
+2019-02-13 21:35:16.160 +02:00 [INF] User created a new account with password.
+2019-02-13 21:35:16.257 +02:00 [DBG] Augmenting SignInContext
+2019-02-13 21:35:16.260 +02:00 [DBG] Adding idp claim with value: local
+2019-02-13 21:35:16.261 +02:00 [DBG] Adding amr claim with value: pwd
+2019-02-13 21:35:16.261 +02:00 [DBG] Adding auth_time claim with value: 1550086516
+2019-02-13 21:35:16.274 +02:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2019-02-13 21:37:03.018 +02:00 [DBG] CORS request made for path: /Account/Logout from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2019-02-13 21:37:03.032 +02:00 [INF] AuthenticationScheme: Identity.Application signed out.
+2019-02-13 21:37:03.034 +02:00 [INF] AuthenticationScheme: Identity.External signed out.
+2019-02-13 21:37:03.034 +02:00 [INF] AuthenticationScheme: Identity.TwoFactorUserId signed out.
+2019-02-13 21:37:03.057 +02:00 [INF] {"SubjectId":"49876e66-d412-4ca7-9647-3718655301ed","DisplayName":"james.marshall@gmail.com","Category":"Authentication","Name":"User Logout Success","EventType":"Success","Id":1002,"Message":null,"ActivityId":"0HLKHT94E45MU:00000002","TimeStamp":"2019-02-13T19:37:03.0000000Z","ProcessId":23816,"LocalIpAddress":"127.0.0.1:30479","RemoteIpAddress":"::1","$type":"UserLogoutSuccessEvent"}
+2019-02-13 21:47:57.569 +02:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2019-02-13 21:47:57.597 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2019-02-13 21:47:57.597 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2019-02-13 21:47:57.597 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2019-02-13 21:47:57.597 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2019-02-13 21:47:57.597 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2019-02-13 21:47:57.684 +02:00 [DBG] Starting grant removal
+2019-02-13 21:47:57.823 +02:00 [DBG] Login Url: /Account/Login
+2019-02-13 21:47:57.825 +02:00 [DBG] Login Return Url Parameter: ReturnUrl
+2019-02-13 21:47:57.825 +02:00 [DBG] Logout Url: /Account/Logout
+2019-02-13 21:47:57.825 +02:00 [DBG] ConsentUrl Url: /consent
+2019-02-13 21:47:57.825 +02:00 [DBG] Consent Return Url Parameter: returnUrl
+2019-02-13 21:47:57.825 +02:00 [DBG] Error Url: /home/error
+2019-02-13 21:47:57.825 +02:00 [DBG] Error Id Parameter: errorId
+2019-02-13 21:48:30.491 +02:00 [INF] User created a new account with password.
+2019-02-13 21:48:30.581 +02:00 [DBG] Augmenting SignInContext
+2019-02-13 21:48:30.584 +02:00 [DBG] Adding idp claim with value: local
+2019-02-13 21:48:30.584 +02:00 [DBG] Adding amr claim with value: pwd
+2019-02-13 21:48:30.585 +02:00 [DBG] Adding auth_time claim with value: 1550087310
+2019-02-13 21:48:30.598 +02:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2019-02-13 21:49:31.572 +02:00 [DBG] CORS request made for path: /Account/Logout from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2019-02-13 21:49:31.589 +02:00 [INF] AuthenticationScheme: Identity.Application signed out.
+2019-02-13 21:49:31.590 +02:00 [INF] AuthenticationScheme: Identity.External signed out.
+2019-02-13 21:49:31.591 +02:00 [INF] AuthenticationScheme: Identity.TwoFactorUserId signed out.
+2019-02-13 21:49:31.604 +02:00 [INF] {"SubjectId":"f6df6858-c5cd-4858-8227-45971173fd93","DisplayName":"james.marshal@gmail.com","Category":"Authentication","Name":"User Logout Success","EventType":"Success","Id":1002,"Message":null,"ActivityId":"0HLKHTGJKPJUT:00000008","TimeStamp":"2019-02-13T19:49:31.0000000Z","ProcessId":16648,"LocalIpAddress":"127.0.0.1:13624","RemoteIpAddress":"::1","$type":"UserLogoutSuccessEvent"}
+2019-02-13 21:49:36.102 +02:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2019-02-13 21:49:44.117 +02:00 [DBG] CORS request made for path: /Account/Login from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2019-02-13 21:49:44.166 +02:00 [DBG] Augmenting SignInContext
+2019-02-13 21:49:44.166 +02:00 [DBG] Adding idp claim with value: local
+2019-02-13 21:49:44.166 +02:00 [DBG] Adding amr claim with value: pwd
+2019-02-13 21:49:44.166 +02:00 [DBG] Adding auth_time claim with value: 1550087384
+2019-02-13 21:49:44.167 +02:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2019-02-13 21:49:44.175 +02:00 [INF] {"Username":"james.marshal@gmail.com","Provider":null,"ProviderUserId":null,"SubjectId":"f6df6858-c5cd-4858-8227-45971173fd93","DisplayName":"james.marshal@gmail.com","Endpoint":"UI","Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HLKHTGJKPJUT:0000000C","TimeStamp":"2019-02-13T19:49:44.0000000Z","ProcessId":16648,"LocalIpAddress":"127.0.0.1:13624","RemoteIpAddress":"::1","$type":"UserLoginSuccessEvent"}
+2019-02-13 21:49:44.223 +02:00 [DBG] 0 persisted grants found for f6df6858-c5cd-4858-8227-45971173fd93
+2019-02-13 21:49:56.132 +02:00 [DBG] CORS request made for path: /Account/Logout from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2019-02-13 21:49:56.134 +02:00 [INF] AuthenticationScheme: Identity.Application signed out.
+2019-02-13 21:49:56.134 +02:00 [INF] AuthenticationScheme: Identity.External signed out.
+2019-02-13 21:49:56.134 +02:00 [INF] AuthenticationScheme: Identity.TwoFactorUserId signed out.
+2019-02-13 21:49:56.135 +02:00 [INF] {"SubjectId":"f6df6858-c5cd-4858-8227-45971173fd93","DisplayName":"james.marshal@gmail.com","Category":"Authentication","Name":"User Logout Success","EventType":"Success","Id":1002,"Message":null,"ActivityId":"0HLKHTGJKPJUT:0000000F","TimeStamp":"2019-02-13T19:49:56.0000000Z","ProcessId":16648,"LocalIpAddress":"127.0.0.1:13624","RemoteIpAddress":"::1","$type":"UserLogoutSuccessEvent"}

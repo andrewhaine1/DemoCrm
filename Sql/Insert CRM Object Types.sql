@@ -1,0 +1,1 @@
+INSERT INTO CrmObjectTypes (Id, Name) VALUES('384a3af4-9064-42f3-a755-d25abd8d9f67','Demo');
