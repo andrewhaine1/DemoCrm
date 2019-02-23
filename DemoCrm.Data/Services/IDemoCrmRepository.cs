@@ -105,11 +105,13 @@ namespace DemoCrm.Data.Services
         /*----------------------------------------------- Companies -------------------------------------------*/
 
         #region Companies
-        Task<IEnumerable<Company>> GetCompaniesAsync(CrmResourceParameters crmResourceParameters);
+        Task<PagedList<Company>> GetCompaniesAsync(CrmResourceParameters crmResourceParameters);
 
         Task<Company> GetCompanyAsync(Guid id);
 
-        Task<bool> CompanyExitsAsync(Guid Id);
+        Task<bool> CompanyNameExistsAsync(string name);
+
+        Task<bool> CompanyExistsAsync(Guid id);
 
         void AddCompany(Company company);
 

@@ -7,7 +7,7 @@ namespace DemoCrm.Data.Services
 {
     public class PropertyMappingService : IPropertyMappingService
     {
-        private Dictionary<string, PropertyMappingValue> _crmUserPropertyMapping =
+        private readonly Dictionary<string, PropertyMappingValue> _crmUserPropertyMapping =
            new Dictionary<string, PropertyMappingValue>(StringComparer.OrdinalIgnoreCase)
            {
                { "FirstName", new PropertyMappingValue(new List<string>() { "FirstName" }) },
@@ -16,18 +16,86 @@ namespace DemoCrm.Data.Services
                { "Name", new PropertyMappingValue(new List<string>() { "FirstName", "LastName" }) }
            };
 
-        private Dictionary<string, PropertyMappingValue> _crmCompanyPropertyMapping =
-            new Dictionary<string, PropertyMappingValue>
+        private readonly Dictionary<string, PropertyMappingValue> _crmCompanyPropertyMapping =
+            new Dictionary<string, PropertyMappingValue>(StringComparer.OrdinalIgnoreCase)
             {
                 { "Name", new PropertyMappingValue(new List<string>() { "Name" }) },
                 { "Phone", new PropertyMappingValue(new List<string>() { "PhoneNumber" }) }
             };
 
-        private Dictionary<string, PropertyMappingValue> _crmDepartmentPropertyMapping =
-            new Dictionary<string, PropertyMappingValue>
+        private readonly Dictionary<string, PropertyMappingValue> _crmDepartmentPropertyMapping =
+            new Dictionary<string, PropertyMappingValue>(StringComparer.OrdinalIgnoreCase)
             {
                 { "Name", new PropertyMappingValue(new List<string>() { "Name" }) }
             };
+
+        private readonly Dictionary<string, PropertyMappingValue> _crmStaffMemberPropertyMapping =
+            new Dictionary<string, PropertyMappingValue>(StringComparer.OrdinalIgnoreCase)
+            {
+                { "FirstName", new PropertyMappingValue(new List<string>() { "FirstName" }) },
+                { "LastName", new PropertyMappingValue(new List<string>() { "LastName" }) },
+                { "Email", new PropertyMappingValue(new List<string>() { "Email" }) },
+                { "Name", new PropertyMappingValue(new List<string>() { "FirstName", "LastName" }) },
+                { "Manager", new PropertyMappingValue(new List<string>() { "IsManager"}) },
+            };
+
+        private readonly Dictionary<string, PropertyMappingValue> _crmStaffPositionPropertyMapping =
+            new Dictionary<string, PropertyMappingValue>(StringComparer.OrdinalIgnoreCase)
+            {
+                { "Name", new PropertyMappingValue(new List<string>() { "Name" }) }
+            };
+
+        private readonly Dictionary<string, PropertyMappingValue> _crmBusinessLeadPropertyMapping =
+            new Dictionary<string, PropertyMappingValue>(StringComparer.OrdinalIgnoreCase)
+            {
+                { "FirstName", new PropertyMappingValue(new List<string>() { "FirstName" }) },
+                { "LastName", new PropertyMappingValue(new List<string>() { "LastName" }) },
+                { "Email", new PropertyMappingValue(new List<string>() { "Email" }) },
+                { "Name", new PropertyMappingValue(new List<string>() { "FirstName", "LastName" }) },
+                { "Company", new PropertyMappingValue(new List<string>() { "Company"}) }
+            };
+
+        private readonly Dictionary<string, PropertyMappingValue> _crmCustomerAccountPropertyMapping =
+            new Dictionary<string, PropertyMappingValue>(StringComparer.OrdinalIgnoreCase)
+            {
+                { "Name", new PropertyMappingValue(new List<string>() { "CompanyName" }) },
+                { "Address", new PropertyMappingValue(new List<string>() { "Address" }) },
+                { "Registration", new PropertyMappingValue(new List<string>() { "RegistrationNumber" }) },
+                { "Vat", new PropertyMappingValue(new List<string>() { "VatNumber" }) },
+            };
+
+        private readonly Dictionary<string, PropertyMappingValue> _crmCustomerContactPropertyMapping =
+            new Dictionary<string, PropertyMappingValue>(StringComparer.OrdinalIgnoreCase)
+            {
+                { "FirstName", new PropertyMappingValue(new List<string>() { "FirstName" }) },
+                { "LastName", new PropertyMappingValue(new List<string>() { "LastName" }) },
+                { "Email", new PropertyMappingValue(new List<string>() { "Email" }) },
+                { "Name", new PropertyMappingValue(new List<string>() { "FirstName", "LastName" }) },
+                { "Department", new PropertyMappingValue(new List<string>() { "Department" }) },
+                { "Position", new PropertyMappingValue(new List<string>() { "Position" }) }
+            };
+
+        private readonly Dictionary<string, PropertyMappingValue> _crmAppointmentPropertyMapping =
+            new Dictionary<string, PropertyMappingValue>(StringComparer.OrdinalIgnoreCase)
+            {
+                { "Subject", new PropertyMappingValue(new List<string>() { "Subject" }) },
+                { "Time", new PropertyMappingValue(new List<string>() { "Time" }) },
+                { "Contact", new PropertyMappingValue(new List<string>() { "ContactPersonFullName" }) },
+                { "Completed", new PropertyMappingValue(new List<string>() { "IsCompleted" }) },
+            };
+
+        private readonly Dictionary<string, PropertyMappingValue> _crmAppointmentTypePropertyMapping =
+            new Dictionary<string, PropertyMappingValue>(StringComparer.OrdinalIgnoreCase)
+            {
+                { "Name", new PropertyMappingValue(new List<string>() { "Name" }) },
+            };
+
+        private readonly Dictionary<string, PropertyMappingValue> _crmAppointmentLocationPropertyMapping =
+            new Dictionary<string, PropertyMappingValue>(StringComparer.OrdinalIgnoreCase)
+            {
+                { "Name", new PropertyMappingValue(new List<string>() { "Name" }) },
+            };
+
 
         private IList<IPropertyMapping> propertyMappings = new List<IPropertyMapping>();
 
@@ -41,6 +109,30 @@ namespace DemoCrm.Data.Services
 
             propertyMappings.Add(new PropertyMapping<Models.Department,
                 Entities.Department>(_crmDepartmentPropertyMapping));
+
+            propertyMappings.Add(new PropertyMapping<Models.Department,
+                Entities.Department>(_crmStaffMemberPropertyMapping));
+
+            propertyMappings.Add(new PropertyMapping<Models.Department,
+                Entities.Department>(_crmStaffPositionPropertyMapping));
+
+            propertyMappings.Add(new PropertyMapping<Models.Department,
+                Entities.Department>(_crmBusinessLeadPropertyMapping));
+
+            propertyMappings.Add(new PropertyMapping<Models.Department,
+                Entities.Department>(_crmCustomerAccountPropertyMapping));
+
+            propertyMappings.Add(new PropertyMapping<Models.Department,
+                Entities.Department>(_crmCustomerContactPropertyMapping));
+
+            propertyMappings.Add(new PropertyMapping<Models.Department,
+                Entities.Department>(_crmAppointmentPropertyMapping));
+
+            propertyMappings.Add(new PropertyMapping<Models.Department,
+                Entities.Department>(_crmAppointmentTypePropertyMapping));
+
+            propertyMappings.Add(new PropertyMapping<Models.Department,
+                Entities.Department>(_crmAppointmentLocationPropertyMapping));
         }
 
         public Dictionary<string, PropertyMappingValue>  GetPropertyMapping

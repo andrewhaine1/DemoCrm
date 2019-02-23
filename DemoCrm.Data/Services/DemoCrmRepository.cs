@@ -148,10 +148,11 @@ namespace DemoCrm.Data.Services
         /*----------------------------------------------- Companies -------------------------------------------*/
 
         #region Companies
-        public async Task<IEnumerable<Company>> GetCompaniesAsync(CrmResourceParameters crmResourceParameters)
+        public async Task<PagedList<Company>> GetCompaniesAsync(CrmResourceParameters crmResourceParameters)
         {
             var collectionBeforePaging = _context.Companies
-                .Include(t => t.ObjectType)
+                .Include(c => c.ObjectType)
+                .Include(c => c.CrmUser)
                 .ApplySort(crmResourceParameters.OrderBy,
                 _propertyMappingService.GetPropertyMapping<Models.Company, Company>());
 
@@ -181,13 +182,19 @@ namespace DemoCrm.Data.Services
         public async Task<Company> GetCompanyAsync(Guid id)
         {
             return await _context.Companies
-                .Include(t => t.ObjectType)
+                .Include(c => c.ObjectType)
+                .Include(c => c.CrmUser)
                 .FirstOrDefaultAsync(c => c.Id == id);
         }
 
-        public async Task<bool> CompanyExitsAsync(Guid Id)
+        public async Task<bool> CompanyExistsAsync(Guid id)
         {
-            return await _context.Companies.AnyAsync(c => c.Id == Id);
+            return await _context.Companies.AnyAsync(c => c.Id == id);
+        }
+
+        public async Task<bool> CompanyNameExistsAsync(string name)
+        {
+            return await _context.Companies.AnyAsync(c => c.Name == name);
         }
 
         public void AddCompany(Company company)

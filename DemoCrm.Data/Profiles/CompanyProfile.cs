@@ -36,8 +36,33 @@ namespace DemoCrm.Data.Profiles
         public static Entities.Company GetCompanyEntityFromCreateModel(Models.CompanyCreate companyCreate)
         {
             return new MapperConfiguration(configure =>
-                configure.CreateMap<Entities.Company, Models.CompanyCreate>())
+                configure.CreateMap<Models.CompanyCreate, Entities.Company>())
                 .CreateMapper().Map<Entities.Company>(companyCreate);
+        }
+
+        public static void MapCompanyUpdateModelToEntity(Models.CompanyUpdate companyUpdate, Entities.Company company)
+        {
+            var mapper = new MapperConfiguration(configure =>
+                configure.CreateMap<Models.CompanyUpdate, Entities.Company>())
+                .CreateMapper();
+
+            mapper.Map(companyUpdate, company);
+        }
+
+        public static void GetCompanyEntityFromUpdateModel(Models.CompanyUpdate companyUpdate, Entities.Company company)
+        {
+            var mapper = new MapperConfiguration(configure =>
+                configure.CreateMap<Models.CompanyUpdate, Entities.Company>())
+                .CreateMapper();
+
+            mapper.Map(companyUpdate, company);
+        }
+
+        public static Models.CompanyUpdate GetCompanyUpdateModelFromEntity(Entities.Company company)
+        {
+            return new MapperConfiguration(configure =>
+                configure.CreateMap<Entities.Company, Models.CompanyUpdate>())
+                .CreateMapper().Map<Models.CompanyUpdate>(company);
         }
     }
 }

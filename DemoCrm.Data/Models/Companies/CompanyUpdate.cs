@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DemoCrm.Data.Models.Company
+namespace DemoCrm.Data.Models
 {
     public class CompanyUpdate : CompanyBase
     {

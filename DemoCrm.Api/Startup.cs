@@ -163,7 +163,7 @@ namespace DemoCrm.Api
 
             //app.UseIpRateLimiting();
 
-            app.UseResponseCaching();          
+            //app.UseResponseCaching();          
 
             app.UseHttpCacheHeaders();
             
