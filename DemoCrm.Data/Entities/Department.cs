@@ -14,7 +14,15 @@ namespace DemoCrm.Data.Entities
         public string Name { get; set; }
 
         [Required]
-        [ForeignKey("Company.Id")]
+        [ForeignKey("CompanyId")]
+        public Company Company { get; set; }
+
+        [Required]
         public Guid CompanyId { get; set; }
+
+        [ForeignKey("ManagerId")]
+        public StaffMember Manager { get; set; }
+
+        public Guid? ManagerId { get; set; }
     }
 }

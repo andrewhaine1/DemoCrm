@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DemoCrm.Data.Models.Appointments
+namespace DemoCrm.Data.Models
 {
     public class AppointmentCreate : AppointmentBase
     {

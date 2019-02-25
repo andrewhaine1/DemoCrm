@@ -29,5 +29,29 @@ namespace DemoCrm.Data.Profiles
                 configure.CreateMap<Models.AppointmentType, Entities.AppointmentType>())
                 .CreateMapper().Map<Entities.AppointmentType>(appointmentType);
         }
+
+        public static Models.AppointmentType GetAppointmentTypeUpdateModelFromEntity(Entities.AppointmentType appointmentType)
+        {
+            return new MapperConfiguration(configure =>
+                configure.CreateMap<Entities.AppointmentType, Models.AppointmentTypeUpdate>())
+                .CreateMapper().Map<Models.AppointmentType>(appointmentType);
+        }
+
+        public static Entities.AppointmentType GetAppointmentTypeEntityFromCreateModel(Models.AppointmentType appointmentType)
+        {
+            return new MapperConfiguration(configure =>
+                configure.CreateMap<Models.AppointmentTypeCreate, Entities.AppointmentType>())
+                .CreateMapper().Map<Entities.AppointmentType>(appointmentType);
+        }
+
+        public static void MapAppointmentTypeModelToEntity(Models.AppointmentTypeUpdate appointmentTypeUpdate,
+            Entities.AppointmentType appointmentType)
+        {
+            var mapper = new MapperConfiguration(configure =>
+                configure.CreateMap<Models.AppointmentType, Entities.AppointmentType>())
+                .CreateMapper();
+
+            mapper.Map(appointmentTypeUpdate, appointmentType);
+        }
     }
 }

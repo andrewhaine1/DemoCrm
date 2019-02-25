@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DemoCrm.Data.Models.CustomerContacts
+namespace DemoCrm.Data.Models
 {
     public class CustomerContactUpdate : CustomerContactBase
     {

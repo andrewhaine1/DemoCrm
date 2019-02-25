@@ -172,6 +172,15 @@ namespace DemoCrm.Api.Controllers
                     "A user's name cannot be the same as their surname.");
             }
 
+            /* WARNING!!! - foreign key values need to be checked before doing save as non existant 
+             * foreign key cause errror 500. */
+
+            if (!await _demoCrmRepository.ObjectTypeExistsAsync(crmUser.ObjectTypeId))
+            {
+                ModelState.AddModelError(nameof(crmUser.ObjectTypeId),
+                    $"Foreign key error: CrmObjectType with Id '{crmUser.ObjectTypeId}' does not exist.");
+            }
+
             if (!ModelState.IsValid)
                 return new Data.Helpers.UnprocessableEntityObjectResult(ModelState);
 
@@ -193,7 +202,7 @@ namespace DemoCrm.Api.Controllers
             linkedResource.Add("links", links);
 
             // return 201 created with the GetCrmUser, Location header and user id
-            return CreatedAtRoute("GetCrmUser", new { id = linkedResource["id"] }, linkedResource);
+            return CreatedAtRoute("GetCrmUser", new { id = linkedResource["Id"] }, linkedResource);
         }
 
         [HttpPut("{id}", Name = "UpdateCrmUser")]

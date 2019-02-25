@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DemoCrm.Data.Models.Departments
+namespace DemoCrm.Data.Models
 {
     public class DepartmentCreate : DepartmentBase
     {

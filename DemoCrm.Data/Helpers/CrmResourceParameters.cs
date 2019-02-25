@@ -26,7 +26,7 @@ namespace DemoCrm.Data.Helpers
 
         public string SearchQuery { get; set; }
 
-        public string OrderBy { get; set; } = "Name";
+        public string OrderBy { get; set; }
 
         public string Type { get; set; }
 

@@ -1,11 +1,10 @@
-﻿using DemoCrm.Data.Entities;
+﻿/*
+    Assists with HATEOAS 
+*/
+using DemoCrm.Data.Entities;
 using DemoCrm.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
-/*
-    Assists with HATEOAS 
-*/
-
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;

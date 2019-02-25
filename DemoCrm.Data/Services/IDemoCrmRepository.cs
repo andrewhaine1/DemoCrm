@@ -23,6 +23,8 @@ namespace DemoCrm.Data.Services
         /// <returns>Task</returns>
         void AddObjectType(CrmObjectType crmObjectType);
 
+        Task<bool> ObjectTypeExistsAsync(int id);
+
         /// <summary>
         /// Updates a CrmObjectType.
         /// </summary>
@@ -123,11 +125,13 @@ namespace DemoCrm.Data.Services
         /*----------------------------------------------- Departments -------------------------------------------*/
 
         #region Departments
-        Task<IEnumerable<Department>> GetDepartmentsAsync(CrmResourceParameters crmResourceParameters);
+        Task<PagedList<Department>> GetDepartmentsAsync(CrmResourceParameters crmResourceParameters);
 
         Task<Department> GetDepartmentAsync(Guid id);
 
         Task<bool> DepartmentExitsAsync(Guid Id);
+
+        Task<bool> DepartmentNameExitsAsync(string name);
 
         void AddDepartment(Department department);
 
@@ -139,9 +143,11 @@ namespace DemoCrm.Data.Services
         /*----------------------------------------------- Staff Members -------------------------------------------*/
 
         #region Staff Members
-        Task<IEnumerable<StaffMember>> GetStaffMembersAsync(CrmResourceParameters crmResourceParameters);
+        Task<PagedList<StaffMember>> GetStaffMembersAsync(CrmResourceParameters crmResourceParameters);
 
         Task<StaffMember> GetStaffMemberAsync(Guid id);
+
+        Task<bool> StaffMemberEmailExitsAsync(string email);
 
         Task<bool> StaffMemberExitsAsync(Guid Id);
 
@@ -155,9 +161,11 @@ namespace DemoCrm.Data.Services
         /*----------------------------------------------- Staff Positions -------------------------------------------*/
 
         #region Staff Positions
-        Task<IEnumerable<StaffPosition>> GetStaffPositionsAsync(CrmResourceParameters crmResourceParameters);
+        Task<PagedList<StaffPosition>> GetStaffPositionsAsync(CrmResourceParameters crmResourceParameters);
 
         Task<StaffPosition> GetStaffPositionAsync(Guid id);
+
+        Task<bool> StaffPositionNameExitsAsync(string name);
 
         Task<bool> StaffPositionExitsAsync(Guid Id);
 
@@ -171,7 +179,7 @@ namespace DemoCrm.Data.Services
         /*----------------------------------------------- Business Leads -------------------------------------------*/
 
         #region Business Leads
-        Task<IEnumerable<BusinessLead>> GetBusinessLeadsAsync(CrmResourceParameters crmResourceParameters);
+        Task<PagedList<BusinessLead>> GetBusinessLeadsAsync(CrmResourceParameters crmResourceParameters);
 
         Task<BusinessLead> GetBusinessLeadAsync(Guid id);
 
@@ -187,7 +195,7 @@ namespace DemoCrm.Data.Services
         /*----------------------------------------------- Customer Accounts -------------------------------------------*/
         
         #region Customer Accounts
-        Task<IEnumerable<CustomerAccount>> GetCustomerAccountsAsync(CrmResourceParameters crmResourceParameters);
+        Task<PagedList<CustomerAccount>> GetCustomerAccountsAsync(CrmResourceParameters crmResourceParameters);
 
         Task<CustomerAccount> GetCustomerAccountAsync(Guid id);
 
@@ -203,7 +211,7 @@ namespace DemoCrm.Data.Services
         /*----------------------------------------------- Customer Contacts -------------------------------------------*/
 
         #region Customer Contacts
-        Task<IEnumerable<CustomerContact>> GetCustomerContactsAsync(CrmResourceParameters crmResourceParameters);
+        Task<PagedList<CustomerContact>> GetCustomerContactsAsync(CrmResourceParameters crmResourceParameters);
 
         Task<CustomerContact> GetCustomerContactAsync(Guid id);
 
@@ -219,7 +227,7 @@ namespace DemoCrm.Data.Services
         /*----------------------------------------------- Appointments -------------------------------------------*/
 
         #region Appointments
-        Task<IEnumerable<Appointment>> GetAppointmentsAsync(CrmResourceParameters crmResourceParameters);
+        Task<PagedList<Appointment>> GetAppointmentsAsync(CrmResourceParameters crmResourceParameters);
 
         Task<Appointment> GetAppointmentAsync(Guid id);
 
@@ -235,7 +243,7 @@ namespace DemoCrm.Data.Services
         /*----------------------------------------------- Appointment Types -------------------------------------------*/
 
         #region Appointmen Types
-        Task<IEnumerable<AppointmentType>> GetAppointmentTypesAsync(CrmResourceParameters crmResourceParameters);
+        Task<PagedList<AppointmentType>> GetAppointmentTypesAsync(CrmResourceParameters crmResourceParameters);
 
         Task<AppointmentType> GetAppointmentTypeAsync(Guid id);
 

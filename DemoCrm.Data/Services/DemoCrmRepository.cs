@@ -40,6 +40,11 @@ namespace DemoCrm.Data.Services
             _context.CrmObjectTypes.Add(crmObjectType);
         }
 
+        public async Task<bool> ObjectTypeExistsAsync(int id)
+        {
+            return await _context.CrmObjectTypes.AnyAsync(o => o.Id == id);
+        }
+
         public void UpdateCrmObjectType(CrmObjectType crmObjectType)
         {
             _context.CrmObjectTypes.Update(crmObjectType);
@@ -219,9 +224,11 @@ namespace DemoCrm.Data.Services
         /*----------------------------------------------- Departments -------------------------------------------*/
 
         #region Departments
-        public async Task<IEnumerable<Department>> GetDepartmentsAsync(CrmResourceParameters crmResourceParameters)
+        public async Task<PagedList<Department>> GetDepartmentsAsync(CrmResourceParameters crmResourceParameters)
         {
             var collectionBeforePaging = _context.Departments
+                .Include(d => d.Company)
+                .Include(d => d.Manager)
                .ApplySort(crmResourceParameters.OrderBy,
                _propertyMappingService.GetPropertyMapping<Models.Department, Department>());
 
@@ -254,6 +261,11 @@ namespace DemoCrm.Data.Services
                 .FirstOrDefaultAsync(d => d.Id == id);
         }
 
+        public async Task<bool> DepartmentNameExitsAsync(string name)
+        {
+            return await _context.Departments.AnyAsync(d => d.Name == name);
+        }
+
         public async Task<bool> DepartmentExitsAsync(Guid Id)
         {
             return await _context.Departments.AnyAsync(d => d.Id == Id);
@@ -278,7 +290,7 @@ namespace DemoCrm.Data.Services
         /*----------------------------------------------- Staff Members -------------------------------------------*/
 
         #region Departments
-        public async Task<IEnumerable<StaffMember>> GetStaffMembersAsync(CrmResourceParameters crmResourceParameters)
+        public async Task<PagedList<StaffMember>> GetStaffMembersAsync(CrmResourceParameters crmResourceParameters)
         {
             var collectionBeforePaging = _context.StaffMembers
                .ApplySort(crmResourceParameters.OrderBy,
@@ -313,9 +325,14 @@ namespace DemoCrm.Data.Services
                 .FirstOrDefaultAsync(d => d.Id == id);
         }
 
+        public async Task<bool> StaffMemberEmailExitsAsync(string email)
+        {
+            return await _context.StaffMembers.AnyAsync(d => d.Email == email);
+        }
+
         public async Task<bool> StaffMemberExitsAsync(Guid Id)
         {
-            return await _context.Departments.AnyAsync(d => d.Id == Id);
+            return await _context.StaffMembers.AnyAsync(d => d.Id == Id);
         }
 
         public void AddStaffMember(StaffMember staffMember)
@@ -337,7 +354,7 @@ namespace DemoCrm.Data.Services
         /*----------------------------------------------- Staff Positions -------------------------------------------*/
 
         #region StaffPositions
-        public async Task<IEnumerable<StaffPosition>> GetStaffPositionsAsync(CrmResourceParameters crmResourceParameters)
+        public async Task<PagedList<StaffPosition>> GetStaffPositionsAsync(CrmResourceParameters crmResourceParameters)
         {
             var collectionBeforePaging = _context.StaffPositions
                .ApplySort(crmResourceParameters.OrderBy,
@@ -372,6 +389,11 @@ namespace DemoCrm.Data.Services
                 .FirstOrDefaultAsync(d => d.Id == id);
         }
 
+        public async Task<bool> StaffPositionNameExitsAsync(string name)
+        {
+            return await _context.StaffPositions.AnyAsync(d => d.Name == name);
+        }
+
         public async Task<bool> StaffPositionExitsAsync(Guid Id)
         {
             return await _context.StaffPositions.AnyAsync(d => d.Id == Id);
@@ -396,7 +418,7 @@ namespace DemoCrm.Data.Services
         /*----------------------------------------------- Business Leads -------------------------------------------*/
 
         #region BusinessLeads
-        public async Task<IEnumerable<BusinessLead>> GetBusinessLeadsAsync(CrmResourceParameters crmResourceParameters)
+        public async Task<PagedList<BusinessLead>> GetBusinessLeadsAsync(CrmResourceParameters crmResourceParameters)
         {
             var collectionBeforePaging = _context.BusinessLeads
                .ApplySort(crmResourceParameters.OrderBy,
@@ -455,7 +477,7 @@ namespace DemoCrm.Data.Services
         /*----------------------------------------------- Customer Accounts -------------------------------------------*/
 
         #region CustomerAccounts
-        public async Task<IEnumerable<CustomerAccount>> GetCustomerAccountsAsync(CrmResourceParameters crmResourceParameters)
+        public async Task<PagedList<CustomerAccount>> GetCustomerAccountsAsync(CrmResourceParameters crmResourceParameters)
         {
             var collectionBeforePaging = _context.CustomerAccounts
                .ApplySort(crmResourceParameters.OrderBy,
@@ -514,7 +536,7 @@ namespace DemoCrm.Data.Services
         /*----------------------------------------------- Customer Contacts -------------------------------------------*/
 
         #region CustomerContacts
-        public async Task<IEnumerable<CustomerContact>> GetCustomerContactsAsync(CrmResourceParameters crmResourceParameters)
+        public async Task<PagedList<CustomerContact>> GetCustomerContactsAsync(CrmResourceParameters crmResourceParameters)
         {
             var collectionBeforePaging = _context.CustomerContacts
                .ApplySort(crmResourceParameters.OrderBy,
@@ -573,7 +595,7 @@ namespace DemoCrm.Data.Services
         /*----------------------------------------------- Appointments -------------------------------------------*/
 
         #region Appointments
-        public async Task<IEnumerable<Appointment>> GetAppointmentsAsync(CrmResourceParameters crmResourceParameters)
+        public async Task<PagedList<Appointment>> GetAppointmentsAsync(CrmResourceParameters crmResourceParameters)
         {
             var collectionBeforePaging = _context.Appointments
                .ApplySort(crmResourceParameters.OrderBy,
@@ -631,7 +653,7 @@ namespace DemoCrm.Data.Services
 
         /*----------------------------------------------- Appointment Types -------------------------------------------*/
         #region AppointmentTypes
-        public async Task<IEnumerable<AppointmentType>> GetAppointmentTypesAsync(CrmResourceParameters crmResourceParameters)
+        public async Task<PagedList<AppointmentType>> GetAppointmentTypesAsync(CrmResourceParameters crmResourceParameters)
         {
             var collectionBeforePaging = _context.AppointmentTypes
                .ApplySort(crmResourceParameters.OrderBy,
@@ -689,7 +711,7 @@ namespace DemoCrm.Data.Services
         /*----------------------------------------------- Appointment Locations -------------------------------------------*/
 
         #region AppointmentTypes
-        public async Task<IEnumerable<AppointmentLocation>> GetAppointmentLocationsAsync(CrmResourceParameters crmResourceParameters)
+        public async Task<PagedList<AppointmentLocation>> GetAppointmentLocationsAsync(CrmResourceParameters crmResourceParameters)
         {
             var collectionBeforePaging = _context.AppointmentLocations
                .ApplySort(crmResourceParameters.OrderBy,

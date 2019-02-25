@@ -110,29 +110,29 @@ namespace DemoCrm.Data.Services
             propertyMappings.Add(new PropertyMapping<Models.Department,
                 Entities.Department>(_crmDepartmentPropertyMapping));
 
-            propertyMappings.Add(new PropertyMapping<Models.Department,
-                Entities.Department>(_crmStaffMemberPropertyMapping));
+            propertyMappings.Add(new PropertyMapping<Models.StaffMember,
+                Entities.StaffMember>(_crmStaffMemberPropertyMapping));
 
-            propertyMappings.Add(new PropertyMapping<Models.Department,
-                Entities.Department>(_crmStaffPositionPropertyMapping));
+            propertyMappings.Add(new PropertyMapping<Models.StaffPosition,
+                Entities.StaffPosition>(_crmStaffPositionPropertyMapping));
 
-            propertyMappings.Add(new PropertyMapping<Models.Department,
-                Entities.Department>(_crmBusinessLeadPropertyMapping));
+            propertyMappings.Add(new PropertyMapping<Models.BusinessLead,
+                Entities.BusinessLead>(_crmBusinessLeadPropertyMapping));
 
-            propertyMappings.Add(new PropertyMapping<Models.Department,
-                Entities.Department>(_crmCustomerAccountPropertyMapping));
+            propertyMappings.Add(new PropertyMapping<Models.CustomerAccount,
+                Entities.CustomerAccount>(_crmCustomerAccountPropertyMapping));
 
-            propertyMappings.Add(new PropertyMapping<Models.Department,
-                Entities.Department>(_crmCustomerContactPropertyMapping));
+            propertyMappings.Add(new PropertyMapping<Models.CustomerContact,
+                Entities.CustomerContact>(_crmCustomerContactPropertyMapping));
 
-            propertyMappings.Add(new PropertyMapping<Models.Department,
-                Entities.Department>(_crmAppointmentPropertyMapping));
+            propertyMappings.Add(new PropertyMapping<Models.Appointment,
+                Entities.Appointment>(_crmAppointmentPropertyMapping));
 
-            propertyMappings.Add(new PropertyMapping<Models.Department,
-                Entities.Department>(_crmAppointmentTypePropertyMapping));
+            propertyMappings.Add(new PropertyMapping<Models.AppointmentType,
+                Entities.AppointmentType>(_crmAppointmentTypePropertyMapping));
 
-            propertyMappings.Add(new PropertyMapping<Models.Department,
-                Entities.Department>(_crmAppointmentLocationPropertyMapping));
+            propertyMappings.Add(new PropertyMapping<Models.AppointmentLocation,
+                Entities.AppointmentLocation>(_crmAppointmentLocationPropertyMapping));
         }
 
         public Dictionary<string, PropertyMappingValue>  GetPropertyMapping

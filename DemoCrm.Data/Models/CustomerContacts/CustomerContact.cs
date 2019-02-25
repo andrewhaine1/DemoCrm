@@ -6,6 +6,8 @@ namespace DemoCrm.Data.Models
 {
     public class CustomerContact
     {
+        public Guid Id { get; set; }
+
         public string Name { get; set; }
 
         public string Department { get; set; }

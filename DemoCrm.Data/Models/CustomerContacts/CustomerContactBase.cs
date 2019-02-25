@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace DemoCrm.Data.Models.CustomerContacts
+namespace DemoCrm.Data.Models
 {
     public abstract class CustomerContactBase
     {

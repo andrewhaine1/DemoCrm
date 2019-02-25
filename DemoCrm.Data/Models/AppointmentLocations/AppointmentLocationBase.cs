@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DemoCrm.Data.Models.AppointmentLocations
+namespace DemoCrm.Data.Models
 {
     public abstract class AppointmentLocationBase
     {

@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DemoCrm.Data.Models.BusinessLeads
+namespace DemoCrm.Data.Models
 {
     public abstract class BusinessLeadBase
     {
+        public Guid Id { get; set; }
+
         public string FirstName { get; set; }
 
         public string LastName { get; set; }

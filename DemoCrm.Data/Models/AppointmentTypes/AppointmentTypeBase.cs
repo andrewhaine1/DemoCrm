@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DemoCrm.Data.Models.AppointmentTypes
+namespace DemoCrm.Data.Models
 {
     public abstract class AppointmentTypeBase
     {

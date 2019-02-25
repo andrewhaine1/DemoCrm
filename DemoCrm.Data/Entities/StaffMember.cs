@@ -18,10 +18,6 @@ namespace DemoCrm.Data.Entities
         public string LastName { get; set; }
 
         [Required]
-        [ForeignKey("StaffPosition.Id")]
-        public Guid StaffPositionId { get; set; }
-
-        [Required]
         [MaxLength(150)]
         public string Email { get; set; }
 
@@ -30,10 +26,16 @@ namespace DemoCrm.Data.Entities
         public string PhoneNumber { get; set; }
 
         [Required]
-        public bool IsManager { get; set; }
+        [ForeignKey("StaffPositionId")]
+        public StaffPosition StaffPosition { get; set; }
+        public Guid StaffPositionId { get; set; }
 
         [Required]
-        [ForeignKey("Department.Id")]
+        public bool IsManager { get; set; } = false;
+
+        [Required]
+        [ForeignKey("DepartmentId")]
+        public Department Department { get; set; }
         public Guid DepartmentId { get; set; }
     }
 }

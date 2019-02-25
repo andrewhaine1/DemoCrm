@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DemoCrm.Data.Models.BusinessLeads
+namespace DemoCrm.Data.Models
 {
     public class BusinessLeadCreate : BusinessLeadBase
     {

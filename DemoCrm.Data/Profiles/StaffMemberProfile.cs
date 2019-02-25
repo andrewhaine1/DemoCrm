@@ -21,11 +21,35 @@ namespace DemoCrm.Data.Profiles
                 .CreateMapper().Map<IEnumerable<Models.StaffMember>>(staffMembers);
         }
 
-        public static Entities.Department GetStaffMemberEntityFromModel(Models.StaffMember staffMember)
+        public static Entities.StaffMember GetStaffMemberEntityFromModel(Models.StaffMember staffMember)
         {
             return new MapperConfiguration(configure =>
-                configure.CreateMap<Models.Department, Entities.Department>())
-                .CreateMapper().Map<Entities.Department>(staffMember);
+                configure.CreateMap<Models.StaffMember, Entities.StaffMember>())
+                .CreateMapper().Map<Entities.StaffMember>(staffMember);
+        }
+
+        public static Models.StaffMemberUpdate GetStaffMemberUpdateModelFromEntity(Entities.StaffMember staffMember)
+        {
+            return new MapperConfiguration(configure =>
+                configure.CreateMap<Entities.StaffMember, Models.StaffMember>())
+                .CreateMapper().Map<Models.StaffMemberUpdate>(staffMember);
+        }
+
+        public static Entities.StaffMember GetStaffMemberEntityFromCreateModel(Models.StaffMemberCreate staffMemberCreate)
+        {
+            return new MapperConfiguration(configure =>
+                configure.CreateMap<Models.StaffMemberCreate, Entities.StaffMember>())
+                .CreateMapper().Map<Entities.StaffMember>(staffMemberCreate);
+        }
+
+        public static void MapStaffMemberUpdateModelToEntity(Models.StaffMemberUpdate staffMemberUpdate,
+            Entities.StaffMember staffMember)
+        {
+            var mapper = new MapperConfiguration(configure =>
+                configure.CreateMap<Models.StaffMemberUpdate, Entities.StaffMember>())
+                .CreateMapper();
+
+            mapper.Map(staffMemberUpdate, staffMember);
         }
     }
 }

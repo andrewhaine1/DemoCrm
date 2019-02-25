@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DemoCrm.Data.Models.StaffMembers
+namespace DemoCrm.Data.Models
 {
-    class StaffMemberCreate
+    public class StaffMemberCreate : StaffMemberBase
     {
     }
 }

@@ -273,14 +273,17 @@ namespace DemoCrm.Data.Migrations
 
                     b.Property<Guid>("CompanyId");
 
+                    b.Property<Guid?>("ManagerId");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(150);
 
-                    b.Property<Guid>("StaffMemberId")
-                        .HasColumnName("Manager");
-
                     b.HasKey("Id");
+
+                    b.HasIndex("CompanyId");
+
+                    b.HasIndex("ManagerId");
 
                     b.ToTable("Departments");
                 });
@@ -310,9 +313,13 @@ namespace DemoCrm.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(20);
 
-                    b.Property<Guid>("StaffPrositionId");
+                    b.Property<Guid>("StaffPositionId");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DepartmentId");
+
+                    b.HasIndex("StaffPositionId");
 
                     b.ToTable("StaffMembers");
                 });
@@ -339,7 +346,7 @@ namespace DemoCrm.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("DemoCrm.Data.Entities.CrmObjectType", "ObjectType")
-                        .WithMany("Companies")
+                        .WithMany()
                         .HasForeignKey("ObjectTypeId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -347,8 +354,33 @@ namespace DemoCrm.Data.Migrations
             modelBuilder.Entity("DemoCrm.Data.Entities.CrmUser", b =>
                 {
                     b.HasOne("DemoCrm.Data.Entities.CrmObjectType", "ObjectType")
-                        .WithMany("CrmUsers")
+                        .WithMany()
                         .HasForeignKey("ObjectTypeId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("DemoCrm.Data.Entities.Department", b =>
+                {
+                    b.HasOne("DemoCrm.Data.Entities.Company", "Company")
+                        .WithMany()
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("DemoCrm.Data.Entities.StaffMember", "Manager")
+                        .WithMany()
+                        .HasForeignKey("ManagerId");
+                });
+
+            modelBuilder.Entity("DemoCrm.Data.Entities.StaffMember", b =>
+                {
+                    b.HasOne("DemoCrm.Data.Entities.Department", "Department")
+                        .WithMany()
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("DemoCrm.Data.Entities.StaffPosition", "StaffPosition")
+                        .WithMany()
+                        .HasForeignKey("StaffPositionId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

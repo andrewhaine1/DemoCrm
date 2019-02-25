@@ -28,5 +28,29 @@ namespace DemoCrm.Data.Profiles
                 configure.CreateMap<Models.CustomerAccount, Entities.CustomerAccount>())
                 .CreateMapper().Map<Entities.CustomerAccount>(customerAccount);
         }
+
+        public static Models.CustomerAccountUpdate GetCustomerAccountUpdateModelFromEntity(Entities.CustomerAccount customerAccount)
+        {
+            return new MapperConfiguration(configure =>
+                configure.CreateMap<Entities.CustomerAccount, Models.CustomerAccountUpdate>())
+                .CreateMapper().Map<Models.CustomerAccountUpdate>(customerAccount);
+        }
+
+        public static Entities.CustomerAccount GetCustomerAccountEntityFromCreateModel(Models.CustomerAccountCreate customerAccountCreate)
+        {
+            return new MapperConfiguration(configure =>
+                configure.CreateMap<Models.CustomerAccountCreate, Entities.CustomerAccount>())
+                .CreateMapper().Map<Entities.CustomerAccount>(customerAccountCreate);
+        }
+
+        public static void MapCustomerAccountUpdateModelToEntity(Models.CustomerAccountUpdate customerAccountUpdate,
+            Entities.CustomerAccount customerAccount)
+        {
+            var mapper = new MapperConfiguration(configure =>
+                configure.CreateMap<Models.StaffMemberUpdate, Entities.StaffMember>())
+                .CreateMapper();
+
+            mapper.Map(customerAccountUpdate, customerAccount);
+        }
     }
 }

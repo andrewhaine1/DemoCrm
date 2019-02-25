@@ -179,6 +179,12 @@ namespace DemoCrm.Api.Controllers
                 return Conflict(ModelState);
             }
 
+            if (!await _demoCrmRepository.ObjectTypeExistsAsync(company.ObjectTypeId))
+            {
+                ModelState.AddModelError(nameof(company.ObjectTypeId),
+                    $"Foreign key error: CrmObjectType with Id '{company.ObjectTypeId}' does not exist.");
+            }
+
             if (!ModelState.IsValid)
                 return new Data.Helpers.UnprocessableEntityObjectResult(ModelState);
 
@@ -196,7 +202,7 @@ namespace DemoCrm.Api.Controllers
 
             linkedResource.Add("links", links);
 
-            return CreatedAtRoute("GetCompany", new { id = companyEntity.Id }, linkedResource);
+            return CreatedAtRoute("GetCompany", new { id = linkedResource["Id"] }, linkedResource);
         }    
 
         [HttpPatch("{id}", Name = "PartiallyUpdateCompany")]

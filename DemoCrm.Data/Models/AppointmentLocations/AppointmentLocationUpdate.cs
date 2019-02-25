@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DemoCrm.Data.Models.AppointmentLocations
+namespace DemoCrm.Data.Models
 {
-    class AppointmentLocationUpdate
+    public class AppointmentLocationUpdate : AppointmentLocationBase
     {
     }
 }
