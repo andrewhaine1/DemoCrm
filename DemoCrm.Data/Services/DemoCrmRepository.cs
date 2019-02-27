@@ -293,6 +293,7 @@ namespace DemoCrm.Data.Services
         public async Task<PagedList<StaffMember>> GetStaffMembersAsync(CrmResourceParameters crmResourceParameters)
         {
             var collectionBeforePaging = _context.StaffMembers
+                .Include(s => s.StaffPosition)
                .ApplySort(crmResourceParameters.OrderBy,
                _propertyMappingService.GetPropertyMapping<Models.StaffMember, StaffMember>());
 
@@ -421,6 +422,7 @@ namespace DemoCrm.Data.Services
         public async Task<PagedList<BusinessLead>> GetBusinessLeadsAsync(CrmResourceParameters crmResourceParameters)
         {
             var collectionBeforePaging = _context.BusinessLeads
+                .Include(b => b.LeadManager)
                .ApplySort(crmResourceParameters.OrderBy,
                _propertyMappingService.GetPropertyMapping<Models.StaffPosition, StaffPosition>());
 
@@ -598,6 +600,10 @@ namespace DemoCrm.Data.Services
         public async Task<PagedList<Appointment>> GetAppointmentsAsync(CrmResourceParameters crmResourceParameters)
         {
             var collectionBeforePaging = _context.Appointments
+                .Include(a =>a.AppointmentType)
+                .Include(a => a.AppointmentLocation)
+                .Include(a => a.CustomerAccount)
+                .Include(a => a.StaffMember)
                .ApplySort(crmResourceParameters.OrderBy,
                _propertyMappingService.GetPropertyMapping<Models.Appointment, Appointment>());
 

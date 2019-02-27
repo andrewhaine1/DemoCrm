@@ -21,10 +21,10 @@ namespace DemoCrm.Data.Entities
         [MaxLength(20)]
         public string PhoneNumber { get; set; }
 
-        [Required]
         [ForeignKey("CrmUserId")]
         public CrmUser CrmUser { get; set; }
 
+        [Required]
         public Guid CrmUserId { get; set; }
 
         [ForeignKey("ObjectTypeId")]

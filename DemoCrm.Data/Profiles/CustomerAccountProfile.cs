@@ -10,7 +10,15 @@ namespace DemoCrm.Data.Profiles
         public static Models.CustomerAccount GetCustomerAccountModelFromEntity(Entities.CustomerAccount customerAccount)
         {
             return new MapperConfiguration(configure =>
-                configure.CreateMap<Entities.CustomerAccount, Models.CustomerAccount>())
+                configure.CreateMap<Entities.CustomerAccount, Models.CustomerAccount>()
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src =>
+                src.CompanyName))
+                .ForMember(dest => dest.Registration, opt => opt.MapFrom(src =>
+                src.RegistrationNumber))
+                .ForMember(dest => dest.Vat, opt => opt.MapFrom(src =>
+                src.VatNumber))
+                .ForMember(dest => dest.Phone, opt => opt.MapFrom(src =>
+                src.PhoneNumber)))
                 .CreateMapper().Map<Models.CustomerAccount>(customerAccount);
         }
 
@@ -18,7 +26,15 @@ namespace DemoCrm.Data.Profiles
             IEnumerable<Entities.CustomerAccount> customerAccounts)
         {
             return new MapperConfiguration(configure =>
-                configure.CreateMap<Entities.CustomerAccount, Models.CustomerAccount>())
+                configure.CreateMap<Entities.CustomerAccount, Models.CustomerAccount>()
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src =>
+                src.CompanyName))
+                .ForMember(dest => dest.Registration, opt => opt.MapFrom(src =>
+                src.RegistrationNumber))
+                .ForMember(dest => dest.Vat, opt => opt.MapFrom(src =>
+                src.VatNumber))
+                .ForMember(dest => dest.Phone, opt => opt.MapFrom(src =>
+                src.PhoneNumber)))
                 .CreateMapper().Map<IEnumerable<Models.CustomerAccount>>(customerAccounts);
         }
 

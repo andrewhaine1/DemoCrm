@@ -7,11 +7,23 @@ namespace DemoCrm.Data.Profiles
 {
     public static class AppointmentProfile
     {
-        public static Models.Appointment GetCustomerContactModelFromEntity(Entities.Appointment
+        public static Models.Appointment GetAppointmentModelFromEntity(Entities.Appointment
              appointment)
         {
             return new MapperConfiguration(configure =>
-                configure.CreateMap<Entities.Appointment, Models.Appointment>())
+                configure.CreateMap<Entities.Appointment, Models.Appointment>()
+                .ForMember(dest => dest.Contact, opt => opt.MapFrom(src =>
+                src.ContactPersonFullName))
+                .ForMember(dest => dest.Type, opt => opt.MapFrom(src =>
+                src.AppointmentType.Name))
+                .ForMember(dest => dest.Location, opt => opt.MapFrom(src =>
+                src.AppointmentLocation.Name))
+                .ForMember(dest => dest.Address, opt => opt.MapFrom(src => 
+                src.AppointmentAddress))
+                .ForMember(dest => dest.Customer, opt => opt.MapFrom(src =>
+                src.CustomerAccount.CompanyName))
+                .ForMember(dest => dest.Attendee, opt => opt.MapFrom(src =>
+                $"{src.StaffMember.FirstName} {src.StaffMember.LastName}")))
                 .CreateMapper().Map<Models.Appointment>(appointment);
         }
 
@@ -19,11 +31,23 @@ namespace DemoCrm.Data.Profiles
             IEnumerable<Entities.Appointment> appointments)
         {
             return new MapperConfiguration(configure =>
-                configure.CreateMap<Entities.Appointment, Models.Appointment>())
+                configure.CreateMap<Entities.Appointment, Models.Appointment>()
+                .ForMember(dest => dest.Contact, opt => opt.MapFrom(src =>
+                src.ContactPersonFullName))
+                .ForMember(dest => dest.Type, opt => opt.MapFrom(src =>
+                src.AppointmentType.Name))
+                .ForMember(dest => dest.Location, opt => opt.MapFrom(src =>
+                src.AppointmentLocation.Name))
+                .ForMember(dest => dest.Address, opt => opt.MapFrom(src =>
+                src.AppointmentAddress))
+                .ForMember(dest => dest.Customer, opt => opt.MapFrom(src =>
+                src.CustomerAccount.CompanyName))
+                .ForMember(dest => dest.Attendee, opt => opt.MapFrom(src =>
+                $"{src.StaffMember.FirstName} {src.StaffMember.LastName}")))
                 .CreateMapper().Map<IEnumerable<Models.Appointment>>(appointments);
         }
 
-        public static Entities.Appointment GetCustomerContactEntityFromModel(Models.Appointment appointment)
+        public static Entities.Appointment GetAppointmentEntityFromModel(Models.Appointment appointment)
         {
             return new MapperConfiguration(configure =>
                 configure.CreateMap<Models.Appointment, Entities.Appointment>())

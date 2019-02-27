@@ -20,26 +20,34 @@ namespace DemoCrm.Data.Entities
         [MaxLength(150)]
         public string ContactPersonFullName { get; set; }
 
-        [Required]
-        [ForeignKey("AppointLocation.Id")]
-        public Guid AppointmentLocationId { get; set; }
+        [ForeignKey("AppointmentLocationId")]
+        public AppointmentLocation AppointmentLocation { get; set; }
 
         [Required]
-        [ForeignKey("AppointType.Id")]
+        public Guid AppointmentLocationId { get; set; }
+
+        [ForeignKey("AppointmentTypeId")]
+        public AppointmentType AppointmentType { get; set; }
+
+        [Required]
         public Guid AppointmentTypeId { get; set; }
 
         [MaxLength(500)]
         public string AppointmentAddress { get; set; }
 
         [Required]
-        public bool IsCompleted { get; set; }
+        public bool IsCompleted { get; set; } = false;
 
-        [ForeignKey("StaffMember.Id")]
-        [Column("StaffAtendee")]
-        public Guid StaffMemberId { get; set; }
+        [ForeignKey("StaffMemberId")]
+        public StaffMember StaffMember { get; set; }
 
         [Required]
-        [ForeignKey("CustomerAccount.Id")]
+        public Guid StaffMemberId { get; set; }
+
+        [ForeignKey("CustomerAccountId")]
+        public CustomerAccount CustomerAccount { get; set; }
+
+        [Required]
         public Guid CustomerAccountId { get; set; }
     }
 }

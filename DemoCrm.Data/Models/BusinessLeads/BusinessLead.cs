@@ -17,5 +17,7 @@ namespace DemoCrm.Data.Models
         public string Email { get; set; }
 
         public string Phone { get; set; }
+
+        public string LeadManager { get; set; }
     }
 }

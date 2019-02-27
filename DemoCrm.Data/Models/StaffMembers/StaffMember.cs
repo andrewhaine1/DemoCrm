@@ -10,7 +10,7 @@ namespace DemoCrm.Data.Models
 
         public string Name { get; set; }
 
-        public Guid Position { get; set; }
+        public string Position { get; set; }
 
         public string Email { get; set; }
 

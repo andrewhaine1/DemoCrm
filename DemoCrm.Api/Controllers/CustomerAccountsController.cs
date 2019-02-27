@@ -46,7 +46,7 @@ namespace DemoCrm.Api.Controllers
             [FromHeader(Name = "Accept")] string mediaType)
         {
             // Check if mapping exists for orderBy parameter passed in via URL
-            if (!_propertyMappingService.ValidMappingExistsFor<CustomerAccount, Data.Entities.BusinessLead>
+            if (!_propertyMappingService.ValidMappingExistsFor<CustomerAccount, Data.Entities.CustomerAccount>
                 (crmResourceParameters.OrderBy))
                 return BadRequest();
 

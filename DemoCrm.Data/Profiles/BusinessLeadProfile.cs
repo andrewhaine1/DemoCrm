@@ -10,14 +10,18 @@ namespace DemoCrm.Data.Profiles
         public static Models.BusinessLead GetBusinessLeadModelFromEntity(Entities.BusinessLead businessLead)
         {
             return new MapperConfiguration(configure =>
-                configure.CreateMap<Entities.BusinessLead, Models.BusinessLead>())
+                configure.CreateMap<Entities.BusinessLead, Models.BusinessLead>()
+                .ForMember(dest => dest.LeadManager, opt => opt.MapFrom(src =>
+                $"{src.LeadManager.FirstName} {src.LeadManager.LastName}")))
                 .CreateMapper().Map<Models.BusinessLead>(businessLead);
         }
 
         public static IEnumerable<Models.BusinessLead> GetBusinessLeadModelsFromEntities(IEnumerable<Entities.BusinessLead> businessLeads)
         {
             return new MapperConfiguration(configure =>
-                configure.CreateMap<Entities.BusinessLead, Models.BusinessLead>())
+                configure.CreateMap<Entities.BusinessLead, Models.BusinessLead>()
+                .ForMember(dest => dest.LeadManager, opt => opt.MapFrom(src =>
+                $"{src.LeadManager.FirstName} {src.LeadManager.LastName}")))
                 .CreateMapper().Map<IEnumerable<Models.BusinessLead>>(businessLeads);
         }
 

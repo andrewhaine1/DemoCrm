@@ -39,8 +39,7 @@ namespace DemoCrm.Data.Migrations
 
                     b.Property<bool>("IsCompleted");
 
-                    b.Property<Guid>("StaffMemberId")
-                        .HasColumnName("StaffAtendee");
+                    b.Property<Guid>("StaffMemberId");
 
                     b.Property<string>("Subject")
                         .IsRequired()
@@ -49,6 +48,14 @@ namespace DemoCrm.Data.Migrations
                     b.Property<DateTime>("Time");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AppointmentLocationId");
+
+                    b.HasIndex("AppointmentTypeId");
+
+                    b.HasIndex("CustomerAccountId");
+
+                    b.HasIndex("StaffMemberId");
 
                     b.ToTable("Appointments");
                 });
@@ -90,8 +97,6 @@ namespace DemoCrm.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(150);
 
-                    b.Property<Guid>("CompanyId");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(150);
@@ -108,10 +113,11 @@ namespace DemoCrm.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(20);
 
-                    b.Property<Guid>("StaffMemberId")
-                        .HasColumnName("Manager");
+                    b.Property<Guid>("StaffMemberId");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("StaffMemberId");
 
                     b.ToTable("BusinessLeads");
                 });
@@ -219,14 +225,17 @@ namespace DemoCrm.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(150);
 
-                    b.Property<Guid>("StaffMemberId")
-                        .HasColumnName("AccountOwner");
+                    b.Property<Guid>("StaffMemberId");
 
                     b.Property<string>("VatNumber")
                         .IsRequired()
                         .HasMaxLength(150);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CompanyId");
+
+                    b.HasIndex("StaffMemberId");
 
                     b.ToTable("CustomerAccounts");
                 });
@@ -262,6 +271,8 @@ namespace DemoCrm.Data.Migrations
                         .HasMaxLength(150);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CustomerAccountId");
 
                     b.ToTable("CustomerContacts");
                 });
@@ -338,6 +349,37 @@ namespace DemoCrm.Data.Migrations
                     b.ToTable("StaffPositions");
                 });
 
+            modelBuilder.Entity("DemoCrm.Data.Entities.Appointment", b =>
+                {
+                    b.HasOne("DemoCrm.Data.Entities.AppointmentLocation", "AppointmentLocation")
+                        .WithMany()
+                        .HasForeignKey("AppointmentLocationId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("DemoCrm.Data.Entities.AppointmentType", "AppointmentType")
+                        .WithMany()
+                        .HasForeignKey("AppointmentTypeId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("DemoCrm.Data.Entities.CustomerAccount", "CustomerAccount")
+                        .WithMany()
+                        .HasForeignKey("CustomerAccountId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("DemoCrm.Data.Entities.StaffMember", "StaffMember")
+                        .WithMany()
+                        .HasForeignKey("StaffMemberId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("DemoCrm.Data.Entities.BusinessLead", b =>
+                {
+                    b.HasOne("DemoCrm.Data.Entities.StaffMember", "LeadManager")
+                        .WithMany()
+                        .HasForeignKey("StaffMemberId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("DemoCrm.Data.Entities.Company", b =>
                 {
                     b.HasOne("DemoCrm.Data.Entities.CrmUser", "CrmUser")
@@ -356,6 +398,27 @@ namespace DemoCrm.Data.Migrations
                     b.HasOne("DemoCrm.Data.Entities.CrmObjectType", "ObjectType")
                         .WithMany()
                         .HasForeignKey("ObjectTypeId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("DemoCrm.Data.Entities.CustomerAccount", b =>
+                {
+                    b.HasOne("DemoCrm.Data.Entities.Company", "Company")
+                        .WithMany()
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("DemoCrm.Data.Entities.StaffMember", "AccountManager")
+                        .WithMany()
+                        .HasForeignKey("StaffMemberId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("DemoCrm.Data.Entities.CustomerContact", b =>
+                {
+                    b.HasOne("DemoCrm.Data.Entities.CustomerAccount", "CustomerAccount")
+                        .WithMany()
+                        .HasForeignKey("CustomerAccountId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

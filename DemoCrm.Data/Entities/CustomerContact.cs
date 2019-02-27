@@ -32,8 +32,10 @@ namespace DemoCrm.Data.Entities
         [MaxLength(20)]
         public string Phone { get; set; }
 
+        [ForeignKey("CustomerAccountId")]
+        public CustomerAccount CustomerAccount { get; set; }
+
         [Required]
-        [ForeignKey("CustomerAccount.Id")]
         public Guid CustomerAccountId { get; set; }
     }
 }

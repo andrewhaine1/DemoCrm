@@ -257,6 +257,20 @@ namespace DemoCrm.Data.Services
         #endregion
 
         /*----------------------------------------------- Appointment Locations -------------------------------------------*/
+        #region Appointmen Locations
+        Task<PagedList<AppointmentLocation>> GetAppointmentLocationsAsync(CrmResourceParameters crmResourceParameters);
+
+        Task<AppointmentLocation> GetAppointmentLocationAsync(Guid id);
+
+        Task<bool> AppointmentLocationExitsAsync(Guid Id);
+
+        void AddAppointmentLocation(AppointmentLocation appointmentLocation);
+
+        void UpdateAppointmentLocation(AppointmentLocation appointmentLocation);
+
+        void DeleteAppointmentLocation(AppointmentLocation appointmentLocation);
+        #endregion
+
 
         #region Save
         /// <summary>

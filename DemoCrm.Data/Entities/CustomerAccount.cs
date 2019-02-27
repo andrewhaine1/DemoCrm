@@ -29,12 +29,16 @@ namespace DemoCrm.Data.Entities
         [MaxLength(150)]
         public string PhoneNumber { get; set; }
 
-        [ForeignKey("StaffMember.Id")]
-        [Column("AccountOwner")]
-        public Guid StaffMemberId { get; set; }
+        [ForeignKey("StaffMemberId")]
+        public StaffMember AccountManager { get; set; }
 
         [Required]
-        [ForeignKey("Company.Id")]
+        public Guid StaffMemberId { get; set; }
+
+        [ForeignKey("CompanyId")]
+        public Company Company { get; set; }
+
+        [Required]
         public Guid CompanyId { get; set; }
     }
 }

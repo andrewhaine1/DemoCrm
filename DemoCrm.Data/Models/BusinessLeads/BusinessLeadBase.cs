@@ -19,7 +19,5 @@ namespace DemoCrm.Data.Models
         public string Phone { get; set; }
 
         public Guid StaffMemberId { get; set; }
-
-        public Guid CompanyId { get; set; }
     }
 }

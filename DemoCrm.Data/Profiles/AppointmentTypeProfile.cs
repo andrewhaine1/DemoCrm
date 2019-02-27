@@ -7,7 +7,7 @@ namespace DemoCrm.Data.Profiles
 {
     public static class AppointmentTypeProfile
     {
-        public static Models.AppointmentType GetCustomerContactModelFromEntity(Entities.AppointmentType
+        public static Models.AppointmentType GetAppointmentTypeModelFromEntity(Entities.AppointmentType
             appointmentType)
         {
             return new MapperConfiguration(configure =>
@@ -15,7 +15,7 @@ namespace DemoCrm.Data.Profiles
                 .CreateMapper().Map<Models.AppointmentType>(appointmentType);
         }
 
-        public static IEnumerable<Models.AppointmentType> GetAppointmentModelsFromEntities(
+        public static IEnumerable<Models.AppointmentType> GetAppointmentTypeModelsFromEntities(
             IEnumerable<Entities.AppointmentType> appointmentTypes)
         {
             return new MapperConfiguration(configure =>
@@ -23,25 +23,26 @@ namespace DemoCrm.Data.Profiles
                 .CreateMapper().Map<IEnumerable<Models.AppointmentType>>(appointmentTypes);
         }
 
-        public static Entities.AppointmentType GetCustomerContactEntityFromModel(Models.AppointmentType appointmentType)
+        public static Entities.AppointmentType GetAppointmentTypeEntityFromModel(Models.AppointmentType appointmentType)
         {
             return new MapperConfiguration(configure =>
                 configure.CreateMap<Models.AppointmentType, Entities.AppointmentType>())
                 .CreateMapper().Map<Entities.AppointmentType>(appointmentType);
         }
 
-        public static Models.AppointmentType GetAppointmentTypeUpdateModelFromEntity(Entities.AppointmentType appointmentType)
+        public static Models.AppointmentTypeUpdate GetAppointmentTypeUpdateModelFromEntity(Entities.AppointmentType appointmentType)
         {
             return new MapperConfiguration(configure =>
                 configure.CreateMap<Entities.AppointmentType, Models.AppointmentTypeUpdate>())
-                .CreateMapper().Map<Models.AppointmentType>(appointmentType);
+                .CreateMapper().Map<Models.AppointmentTypeUpdate>(appointmentType);
         }
 
-        public static Entities.AppointmentType GetAppointmentTypeEntityFromCreateModel(Models.AppointmentType appointmentType)
+        public static Entities.AppointmentType GetAppointmentTypeEntityFromCreateModel(
+            Models.AppointmentTypeCreate appointmentTypeCreate)
         {
             return new MapperConfiguration(configure =>
                 configure.CreateMap<Models.AppointmentTypeCreate, Entities.AppointmentType>())
-                .CreateMapper().Map<Entities.AppointmentType>(appointmentType);
+                .CreateMapper().Map<Entities.AppointmentType>(appointmentTypeCreate);
         }
 
         public static void MapAppointmentTypeModelToEntity(Models.AppointmentTypeUpdate appointmentTypeUpdate,
