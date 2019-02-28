@@ -21,6 +21,7 @@ namespace DemoCrm.Api
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                .UseUrls("http://localhost:5001")
                 .UseNLog();
     }
 }
