@@ -16,6 +16,8 @@ namespace DemoCrm.Data.Services
 
         Task<CrmObjectType> GetCrmObjectTypeAsync(int id);
 
+        Task<CrmObjectType> GetCrmObjectTypeIdAsync(string name);
+
         /// <summary>
         /// Add new CrmObjectType
         /// </summary>
@@ -60,6 +62,13 @@ namespace DemoCrm.Data.Services
         /// <param name="id">The Guid Id of the CRM User</param>
         /// <returns>A CrmUser</returns>
         Task<CrmUser> GetCrmUserAsync(Guid id);
+
+        /// <summary>
+        /// Gets one CRM user Id.
+        /// </summary>
+        /// <param name="id">The Oauth Id of the CRM User received from Identity server.</param>
+        /// <returns>The CrmUser Id.</returns>
+        Task<Guid> GetCrmUserIdAsync(Guid oauthId);
 
         Task<PagedList<CrmUser>> GetCrmUsersAsync(CrmResourceParameters crmUsersPageSizeParameters);
 
@@ -111,6 +120,8 @@ namespace DemoCrm.Data.Services
 
         Task<Company> GetCompanyAsync(Guid id);
 
+        Task<Company> GetCompanyByUserIdAsync(Guid userId);
+
         Task<bool> CompanyNameExistsAsync(string name);
 
         Task<bool> CompanyExistsAsync(Guid id);
@@ -128,6 +139,8 @@ namespace DemoCrm.Data.Services
         Task<PagedList<Department>> GetDepartmentsAsync(CrmResourceParameters crmResourceParameters);
 
         Task<Department> GetDepartmentAsync(Guid id);
+
+        Task<IEnumerable<Department>> GetDepartmentsForCompanyAsync(Guid companyId);
 
         Task<bool> DepartmentExitsAsync(Guid Id);
 

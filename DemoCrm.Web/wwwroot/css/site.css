@@ -1,0 +1,230 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+.navbar {
+    position: absolute;
+    width:100%;
+    z-index: 1;
+    height: 50px;
+}
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html, body, .main {
+    height: 100%;
+    width: 100%;
+}
+
+h1 {
+    margin: 0;
+}
+
+.democrm-page-frame {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.democrm-page-left {
+    position: absolute;
+    display: inline-block;
+    float: left;
+    height: 100%;
+    width: 250px;
+}
+
+.democrm-page-right {
+    padding: 50px 0 0 250px;
+    display: inline-block;
+    float: right;
+    width: 100%;
+    height: 100%;
+}
+
+.democrm-page-right-inner {
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+}
+
+.demo-crm-add-user-outer, .demo-crm-add-company-outer {
+    margin: 5% auto;
+    width: 800px;
+    padding: 20px 100px 20px 100px;
+}
+
+.demo-crm-add-user-legend, .demo-crm-add-company-legend {
+    text-align: center;
+}
+
+.company-side-menu {
+    position: relative;
+    z-index: 1;
+    width: 250px;
+    height: 100%;
+    background: #003b56;
+}
+
+.company-side-menu-logo {
+    text-align: center;
+    height: 50px;
+}
+
+.company-side-menu-logo-heading {
+    display: block;
+    height: 100%;
+    margin: 0;
+    color: #FFFFFF;
+    border-bottom: 1px solid #808080;
+}
+
+.company-side-menu-logo-heading-span {
+    color: #ff0000;
+    font-weight: 700;
+}
+
+.company-top-menu {
+    position: absolute;
+    z-index: 0;
+    height: 50px;
+    width: 100%;
+    background: #e5e5e5;
+}
+
+.company-side-menu {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.company-side-menu-item {
+    height: 50px;
+    color: #fff;
+    line-height: 50px;
+}
+
+.company-side-sub-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background: #004c6e;
+    display: none;
+}
+
+/*------------ Side Menu Tree -------------*/
+/* Remove default bullets */
+ul, #company-side-menu-ul {
+    list-style-type: none;
+}
+
+.company-side-menu-ul-item {
+    height: 50px;
+    line-height: 50px;
+}
+
+.company-side-menu-nested-item {
+    height: 40px;
+    line-height: 40px;
+    font-size: 12px;
+    border-bottom: 1px solid #565656;
+}
+
+.company-side-menu-ul-item {
+    border-bottom: 1px solid #565656;
+}
+
+.company-side-menu-nested-item-link {
+    color: #e5e5e5;
+    text-decoration: none !important;
+}
+
+.company-side-menu-nested-item-link:hover {
+    color: #FFFFFF;
+}
+
+
+/* Remove margins and padding from the parent ul */
+#company-side-menu-ul {
+    margin: 0;
+    padding: 0;
+    color: #FFFFFF;
+}
+
+/* Style the caret/arrow */
+.caret {
+    cursor: pointer;
+    user-select: none; /* Prevent text selection */
+    color: #e5e5e5;
+}
+
+/* Create the caret/arrow with a unicode, and style it */
+.caret::before {
+    /*content: "\25B6";*/
+    color: black;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+/* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+/*.caret-down::before {
+    transform: rotate(90deg);
+}*/
+
+/* Hide the nested list */
+.company-side-menu-nested {
+    display: none;
+}
+
+/* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+.company-side-menu-active {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    background: #004868;
+    position: relative;
+}
+
+.company-department-vc-block {
+    height: 150px;
+    border: 1px solid #e0e0e0;
+}
+
+.company-department-vc-block-upper {
+    height: 120px;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 5px 10px 5px 10px;
+}
+
+.company-department-vc-description {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    line-height: 25px;
+}
+
+@media(max-width: 1280px)
+{
+    .company-department-vc-description {
+        
+    }
+}
+
+.company-department-vc-block-lower {
+    height: 30px;
+    padding: 0 10px 0 10px;
+}

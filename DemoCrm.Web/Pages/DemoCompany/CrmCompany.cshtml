@@ -1,0 +1,56 @@
+﻿@page
+@model DemoCrm.Web.Pages.DemoCompany.CrmCompanyModel
+@{
+    ViewData["Title"] = "CrmCompany";
+}
+
+@if (Model.Company == null)
+{
+    @*@await Html.PartialAsync("Shared/_CreateCrmUser.cshtml",
+        new DemoCrm.Data.Models.CrmUserCreate { OauthId = Model.UserId, ObjectTypeId = @Model.CrmObjectId })*@
+    <partial name="_CreateCompany.cshtml"
+             model="new DemoCrm.Data.Models.CompanyCreate
+             {
+                CrmUserId = Model.CrmUser != null ? Model.CrmUser.Id : Guid.Parse(@Request.Form["CrmUserId"].ToString()),
+                ObjectTypeId = Model.ObjectId,
+                PhoneNumber = Model.CrmUser != null ? Model.CrmUser.Phone : @Request.Form["Phone"].ToString()
+             }" />
+}
+else
+{
+    <div class="democrm-page-left">
+        <div class="company-side-menu">
+            <div class="company-side-menu-logo">
+                <h2 class="company-side-menu-logo-heading">
+                    Demo<span class="company-side-menu-logo-heading-span">CRM</span>
+                </h2>
+                <ul id="company-side-menu-ul">
+                    <li class="company-side-menu-ul-item">
+                        <span class="caret">Departments</span>
+                        <ul class="company-side-menu-nested">
+                            <li class="company-side-menu-nested-item">
+                                <a class="company-side-menu-nested-item-link" asp-area="" asp-page="/Index">View All</a>
+                            </li>
+                            <li class="company-side-menu-nested-item">
+                                <a class="company-side-menu-nested-item-link" asp-area="" asp-page="/Index">Add new</a>
+                            </li>
+                            <li class="company-side-menu-nested-item">
+                                <a class="company-side-menu-nested-item-link" asp-area="" asp-page="/Index">Edit</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="democrm-page-right">
+        <div class="democrm-page-right-inner">
+            <div class="row">
+                <div class="col-md-4">
+                    @await Component.InvokeAsync("Departments", new { companyId = Model.Company.Id })
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

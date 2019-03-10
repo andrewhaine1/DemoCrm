@@ -1,0 +1,18 @@
+﻿@page
+@model DemoCrm.Web.Pages.DemoUser.CrmUserModel
+@{
+    ViewData["Title"] = "CrmUser";
+}
+
+@if (Model.CrmUser == null)
+{
+    @*@await Html.PartialAsync("Shared/_CreateCrmUser.cshtml",
+        new DemoCrm.Data.Models.CrmUserCreate { OauthId = Model.UserId, ObjectTypeId = @Model.CrmObjectId })*@
+    <partial name="_CreateCrmUser.cshtml"
+             model="new DemoCrm.Data.Models.CrmUserCreate { OauthId = Model.OauthId, ObjectTypeId = @Model.ObjectId }" />
+}
+else
+{
+    <h1>Crm User @Model.CrmUser.Name can be edited.</h1>
+}
+

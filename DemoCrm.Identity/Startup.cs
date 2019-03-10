@@ -25,6 +25,7 @@ namespace DemoCrm.Identity
     {
         public IConfiguration Configuration { get; }
         public IHostingEnvironment Environment { get; }
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
         public Startup(IConfiguration configuration, IHostingEnvironment environment)
         {
@@ -40,6 +41,15 @@ namespace DemoCrm.Identity
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins,
+                build =>
+                {
+                    build.WithOrigins("http://localhost:4200");
+                });
+            });
 
             services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
 
@@ -58,23 +68,27 @@ namespace DemoCrm.Identity
                 options.Events.RaiseFailureEvents = true;
                 options.Events.RaiseSuccessEvents = true;
             })
-                // this adds the config data from DB (clients, resources)
-                .AddConfigurationStore(options =>
-                {
-                    options.ConfigureDbContext = b =>
-                        b.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
-                            sql => sql.MigrationsAssembly(migrationsAssembly));
-                })
-                // this adds the operational data from DB (codes, tokens, consents)
-                .AddOperationalStore(options =>
-                {
-                    options.ConfigureDbContext = b =>
-                        b.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
-                            sql => sql.MigrationsAssembly(migrationsAssembly));
+                //// this adds the config data from DB (clients, resources)
+                //.AddConfigurationStore(options =>
+                //{
+                //    options.ConfigureDbContext = b =>
+                //        b.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
+                //            sql => sql.MigrationsAssembly(migrationsAssembly));
+                //})
+                //// this adds the operational data from DB (codes, tokens, consents)
+                //.AddOperationalStore(options =>
+                //{
+                //    options.ConfigureDbContext = b =>
+                //        b.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
+                //            sql => sql.MigrationsAssembly(migrationsAssembly));
 
-                    // this enables automatic token cleanup. this is optional.
-                    options.EnableTokenCleanup = true;
-                })
+                //    // this enables automatic token cleanup. this is optional.
+                //    options.EnableTokenCleanup = true;
+                //})
+
+                .AddInMemoryIdentityResources(Config.GetIdentityResources())
+                .AddInMemoryApiResources(Config.GetApis())
+                .AddInMemoryClients(Config.GetClients())
                 .AddAspNetIdentity<ApplicationUser>();
 
             services.AddTransient<IEmailSender, EmailSender>();
@@ -102,7 +116,7 @@ namespace DemoCrm.Identity
         public void Configure(IApplicationBuilder app)
         {
             // this will do the initial DB population
-            InitializeDatabase(app);
+            // InitializeDatabase(app);
 
             if (Environment.IsDevelopment())
             {
@@ -113,7 +127,7 @@ namespace DemoCrm.Identity
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
+            app.UseCors(MyAllowSpecificOrigins);
             app.UseStaticFiles();
             app.UseIdentityServer();
             app.UseMvcWithDefaultRoute();

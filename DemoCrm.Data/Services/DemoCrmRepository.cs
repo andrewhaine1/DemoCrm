@@ -29,6 +29,12 @@ namespace DemoCrm.Data.Services
             return await _context.CrmObjectTypes.ToListAsync();
         }
 
+        public async Task<CrmObjectType> GetCrmObjectTypeIdAsync(string name)
+        {
+            return await _context.CrmObjectTypes.Where(t => t.Name == name)
+                .FirstOrDefaultAsync();
+        }
+
         public async Task<CrmObjectType> GetCrmObjectTypeAsync(int id)
         {
             return await _context.CrmObjectTypes.Where(t => t.Id == id)
@@ -121,6 +127,14 @@ namespace DemoCrm.Data.Services
                 .FirstOrDefaultAsync(c => c.Id == id);
         }
 
+        public async Task<Guid> GetCrmUserIdAsync(Guid oauthId)
+        {
+            return await _context.CrmUsers
+                .Where(c => c.OauthId == oauthId)
+                .Select(c => c.Id)
+                .FirstOrDefaultAsync();
+        }
+
         public void AddCrmUser(CrmUser crmUser)
         {
             if (crmUser == null)
@@ -192,6 +206,12 @@ namespace DemoCrm.Data.Services
                 .FirstOrDefaultAsync(c => c.Id == id);
         }
 
+        public async Task<Company> GetCompanyByUserIdAsync(Guid userId)
+        {
+            return await _context.Companies
+                .FirstOrDefaultAsync(c => c.CrmUserId == userId);
+        }
+
         public async Task<bool> CompanyExistsAsync(Guid id)
         {
             return await _context.Companies.AnyAsync(c => c.Id == id);
@@ -253,6 +273,13 @@ namespace DemoCrm.Data.Services
             return await PagedList<Department>.Create(collectionBeforePaging,
                 crmResourceParameters.PageNumber,
                 crmResourceParameters.PageSize);
+        }
+
+        public async Task<IEnumerable<Department>> GetDepartmentsForCompanyAsync(Guid companyId)
+        {
+            return await _context.Departments
+                .Where(d => d.CompanyId == companyId)
+                .ToListAsync();
         }
 
         public async Task<Department> GetDepartmentAsync(Guid id)

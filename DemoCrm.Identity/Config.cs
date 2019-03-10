@@ -16,6 +16,7 @@ namespace DemoCrm.Identity
             {
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
+                new IdentityResource("roles", "Your role(s)", new []{ "role" })
             };
         }
 
@@ -78,7 +79,7 @@ namespace DemoCrm.Identity
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
-                        "democrm_api"
+                        "profile"
                     },
 
                     AllowOfflineAccess = true
@@ -88,20 +89,25 @@ namespace DemoCrm.Identity
                 {
                     ClientId = "democrm_spa",
                     ClientName = "DemoCRM Single Page App (Angular)",
-                    AllowedGrantTypes = GrantTypes.Code,
-                    RequirePkce = true,
-                    RequireClientSecret = false,
+                    AllowedGrantTypes = GrantTypes.Implicit,
+                    RequireConsent = false,
+                    AllowAccessTokensViaBrowser = true,
+                    // RequireClientSecret = false,
 
-                    RedirectUris =           { "http://localhost:5003/callback.html" },
-                    PostLogoutRedirectUris = { "http://localhost:5003/index.html" },
-                    AllowedCorsOrigins =     { "http://localhost:5003" },
+                    RedirectUris =           { "http://localhost:4200/signin-oidc" },
+                    PostLogoutRedirectUris = { "http://localhost:4200/" },
+                    AllowedCorsOrigins =     { "http://localhost:4200/" },
+
+                    AccessTokenLifetime = 180,
 
                     AllowedScopes =
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
+                        "roles",
+                        "profile",
                         "democrm_api"
-                    }
+                    },
                 }
             };
         }

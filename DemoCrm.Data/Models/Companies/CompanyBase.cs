@@ -16,7 +16,7 @@ namespace DemoCrm.Data.Models
         [MaxLength(500)]
         public string Address { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The Phone field is required.")]
         [MaxLength(20)]
         public string PhoneNumber { get; set; }
 
